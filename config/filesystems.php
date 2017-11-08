@@ -63,6 +63,14 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'pdf_upload'=>[
+          'driver' => 'local',
+          'root'=> public_path().'/uploads/pdf',],
+
+          'image_upload'=>[
+            'driver' => 'local',
+            'root'=> public_path().'/uploads/images',],
+
     ],
 
 ];

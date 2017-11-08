@@ -49,5 +49,14 @@ th a {
   top:-5px;
 }
 .btnfile{
-  top: -20px;
+  color: white;
+  margin-left: 10px;
+  border-radius: 10%;
+  background-color: #BDBDBD;
+  border: none;
+  height: 40px;
+  width: 40px;
+}
+.lbfile{
+  margin-top: 9px;
 }

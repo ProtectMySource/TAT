@@ -38,4 +38,5 @@ Route::group(['prefix'=>'admin'],function(){
   Route::resource('books','backend\books\BooksController')->middleware('auth');
   Route::post('books/edit/{book}', 'backend\books\BooksController@update')->name('books.up')->middleware('auth');
   Route::get('books/destroy/{book}', 'backend\books\BooksController@destroy')->name('books.delete')->middleware('auth');
+  Route::post('books/str', 'backend\books\BooksController@tusangtac_store')->name('books.str')->middleware('auth');
 });

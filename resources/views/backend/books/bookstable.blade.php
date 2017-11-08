@@ -32,11 +32,11 @@
                 <th>@sortablelink('author', 'Tác giả')</th>
                 <th>@sortablelink('preview', 'Giới thiệu')</th>
                 <th>@sortablelink('date', 'Ngày cập nhật')</th>
-                <th>Nội dung</th>
+                <th>File pdf</th>
                 <th>@sortablelink('view', 'Lượt xem')</th>
                 <th>@sortablelink('like', 'Lượt thích')</th>
-                <th>@sortablelink('categories_id', 'Thể loại')</th>
-                <th>@sortablelink('species_id', 'Danh mục')</th>
+                <th>@sortablelink('categories_id', 'Danh mục')</th>
+                <th>Thể loại</th>
                 <th>Tùy chọn</th>
               </thead>
               <tbody>
@@ -46,11 +46,13 @@
                   <td>{{$book->id}}</td>
                   <td>{{$book->name}}</td>
                   <td>{{$book->author}}</td>
+                  <td>{!!$book->preview!!}</td>
                   <td>{{date('d-m-Y', strtotime(str_replace('-', '/', $book->date)))}}</td>
+                  <td>{{$book->content}}</td>
                   <td>{{$book->view}}</td>
                   <td>{{$book->like}}</td>
-                  <td>{{$book->author}}</td>
-                  <td>{{$book->author}}</td>
+                  <td>{{$book->categories->name}}</td>
+                  <td>{{$book->species}}</td>
                   <td class="td-actions text-right">
                     <a href="{{route('customers.edit',['customer'=>$book->id])}}" type="button" rel="tooltip" title="Edit"
                       class="btn btn-success btn-simple btn-xs">

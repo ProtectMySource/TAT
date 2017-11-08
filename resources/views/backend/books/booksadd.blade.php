@@ -1,6 +1,7 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
 @extends('backend.layout.footer')
+@extends('backend.layout.bookjs')
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -12,7 +13,7 @@
                         <p class="category"></p>
                     </div>
                     <div class="card-content">
-                        <form class="form" action="{{route('books.store')}}" method="POST" enctype="multipart/form-data">
+                        <form id="form" class="form" action="{{route('books.store')}}" method="POST" enctype="multipart/form-data">
                            {{ csrf_field() }}
                            <div class="row">
                              <div class="col-md-2 form-label">
@@ -20,12 +21,9 @@
                              </div>
                              <div class="col-md-6">
                                <div class="form-group label-floating">
-                                 <select onchange="CategoriesChange(this.value)" class="js-example-basic-single" name="categories" style="width: 100%">
+                                 <select id="categoryselect" onchange="CategoriesChange(this.value)" class="js-example-basic-single" name="categories" style="width: 100%">
                                    @foreach($categories as $category)
                                    <option value="{{$category->id}}" {{old('categories')==$category->id?'selected':''}}>{{$category->name}}</option>
-                                   @php if($category->name=='Truyện tự sáng tác'){
-                                       $cate = $category->id;
-                                   }
                                    @endphp
                                    @endforeach
                                  </select>
@@ -34,14 +32,19 @@
                              <script type="text/javascript">
                              function CategoriesChange(value){
                                if({{$cate}}==value){
-                                 @php $inputauthor=1; @endphp
-                                 $('#inputfile').addClass('hide');
+                                 $("#authorinput").addClass('hide');
+                                 $("#authorselect").removeClass('hide');
+                                 $("#inputfile").addClass('hide');
+                                 $("#form").attr('action','{{route('books.str')}}');
                                }
                                else{
-                                 @php $inputauthor=0; @endphp
-                                 $('#inputfile').removeClass('hide');
+                                 $("#authorinput").removeClass('hide');
+                                 $("#authorselect").addClass('hide');
+                                 $("#inputfile").removeClass('hide');
+                                 $("#form").attr('action','{{route('books.store')}}');
                                }
                              };
+
                              </script>
                              <div class="col-md-2">
                                @if ($errors->has('categories'))
@@ -68,21 +71,27 @@
                             <div class="col-md-2 form-label">
                               <label for="" class="{{ $errors->has('author') ? 'has-error' : '' }}">Tác giả<span class="required"> * </span></label>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" id="authorselect">
                               <div class="form-group label-floating">
-                                <select class="js-example-basic-single" name="categories" style="width: 100%">
+                                <select  class="js-example-basic-single" name="author2" style="width: 100%">
+                                  <option disabled selected value>Chọn người dùng</option>
                                   @foreach($customers as $customer)
-                                  <option value="{{$customer->id}}" {{old('author')==$customer->id?'selected':''}}>{{$customer->name}}</option>
+                                  <option value="{{$customer->id}}" {{old('author2') == $customer->id?'selected':''}}>{{$customer->name}}</option>
                                   @endforeach
                                 </select>
-
-                                <!-- <input type="text" class="form-control" name="author" value="{{old('author')}}"> -->
-
+                              </div>
+                            </div>
+                            <div class="col-md-6" id="authorinput">
+                              <div class="form-group label-floating">
+                                <input  type="text" class="form-control" name="author" value="{{old('author')}}">
                               </div>
                             </div>
                             <div class="col-md-2">
                               @if ($errors->has('author'))
                                 <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('author')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
+                              @endif
+                              @if ($errors->has('author2'))
+                                <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('author2')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
                               @endif
                             </div>
                           </div>
@@ -111,16 +120,14 @@
                               @endif
                             </div>
                           </div>
-
                           <div class="row" id="inputfile">
                             <div class="col-md-2 form-label">
                               <label for="" class="{{ $errors->has('content') ? 'has-error' : '' }}">File sách<span class="required"> * </span></label>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group label-floating">
-                                <button type="button" class="btn btn-default btnfile" disabled>
-                                  <i class="fa fa-file"></i>
-                                </button><input type="file" name="content" value="" accept="application/pdf">
+                                <input id="selectfile" type="file" name="content" value="" accept="application/pdf">
+                                <label id="lbfile" class="lbfile" for="" style="color:black">{{Session::has('pdf_name')?Session::get('pdf_name'):'Chưa chọn file'}}</label> <span><button class="btnfile"><i class="fa fa-file fa-lg fa-white"></i></button></span>
                               </div>
                             </div>
                             <div class="col-md-2">
@@ -135,7 +142,7 @@
                             </div>
                             <div class="col-md-6">
                               <div class="input-group">
-                                  <input id="dobp" type="text" class="form-control docs-date" name="date" placeholder="Pick a date" value="{{old('date')}}">
+                                  <input id="dobp" type="text" class="form-control docs-date" name="date" placeholder="Chọn ngày" value="{{old('date')}}">
                                 <span class="input-group-btn">
                                   <button type="button" class="btn btn-default btndt" disabled>
                                     <i class="fa fa-calendar"></i>

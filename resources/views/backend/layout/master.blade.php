@@ -119,15 +119,16 @@ ClassicEditor
         } );
         ClassicEditor
                 .create( document.querySelector( '#editor2' ) )
-                .catch( error => {
-                    console.error( error );
+                .catch( error2 => {
+                    console.error( error2 );
                 } );
                 $(document).ready(function() {
                     $('.js-example-basic-single').select2();
                 });
                 $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
-    
+
 });
+@yield('js')
 </script>
 </html>
