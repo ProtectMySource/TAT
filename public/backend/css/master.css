@@ -1,0 +1,53 @@
+.form-label{
+  margin-top: 35px;
+  text-align: right;
+  margin-right: 15px;
+}
+label{
+  color: black;
+}
+.btndt{
+  top: 10px;
+  text-align: center;
+}
+
+.btn{
+  margin-right: 10px;
+}
+.btnsub{
+  margin-right: 150px;
+}
+#display_main_img_add_client {
+  height: 200px;
+  width: 200px;
+}
+.form{
+  margin-left: 50px;
+}
+.btn-error{
+  background-color: transparent;
+  border: none;
+  margin-top: 30px;
+}
+.tooltip-inner{
+  color: red;
+}
+.has-error{
+  color: red;
+}
+.fa-exclamation-circle{
+  color:red;
+}
+th a {
+  color: white;
+}
+.btn-search{
+  background-color: transparent;
+  border: none;
+}
+.btn-yes-modal{
+  top:-5px;
+}
+.btnfile{
+  top: -20px;
+}
