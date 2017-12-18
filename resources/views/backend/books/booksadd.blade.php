@@ -1,7 +1,6 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.layout.footer')
-@extends('backend.layout.bookjs')
+@extends('backend.books.bookadd_js')
 @section('content')
 <div class="content">
     <div class="container-fluid">

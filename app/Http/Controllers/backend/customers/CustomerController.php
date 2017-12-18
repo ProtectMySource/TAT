@@ -4,10 +4,13 @@ namespace App\Http\Controllers\backend\customers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Customers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use App\Customers;
+use App\Books;
+use App\Subs;
+use App\Comments;
 
 class CustomerController extends Controller
 {
@@ -146,6 +149,24 @@ class CustomerController extends Controller
     {
         $customer = Customers::where('id',$id)->first();
         $customer->delete();
+        $books = Books::all();
+        foreach ($books as $book) {
+          if($book->customer_id==$id){
+            $book->delete();
+          }
+        }
+        $comments = Comments::all();
+        foreach ($comments as $comment) {
+          if($comment->customer_id==$id){
+            $comment->delete();
+          }
+        }
+        $subs = Subs::all();
+        foreach ($subs as $sub) {
+          if($sub->customer_id==$id){
+            $sub->delete();
+          }
+        }
         return redirect()->route('customers.index')->with('status','Đã xóa thành công!');
     }
 

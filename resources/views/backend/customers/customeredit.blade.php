@@ -1,6 +1,5 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.layout.footer')
 @section('content')
 <div class="content">
     <div class="container-fluid">

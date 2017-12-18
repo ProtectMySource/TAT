@@ -1,6 +1,5 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.layout.footer')
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -113,7 +112,7 @@
                                 <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('dob')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
                               @endif
                             </div>
-                          </div>                        
+                          </div>
                         <button type="submit" class="btn btn-primary pull-right btnsub">Tạo mới</button>
                         <a class="btn btn-primary pull-right" href="{{route('customers.index')}}">Hủy</a>
                         <div class="clearfix"></div>

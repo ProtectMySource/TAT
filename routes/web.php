@@ -39,4 +39,6 @@ Route::group(['prefix'=>'admin'],function(){
   Route::post('books/edit/{book}', 'backend\books\BooksController@update')->name('books.up')->middleware('auth');
   Route::get('books/destroy/{book}', 'backend\books\BooksController@destroy')->name('books.delete')->middleware('auth');
   Route::post('books/str', 'backend\books\BooksController@tusangtac_store')->name('books.str')->middleware('auth');
+  Route::post('books/edits/{book}', 'backend\books\BooksController@tusangtac_update')->name('books.2up')->middleware('auth');
 });
+Route::get('/index','frontend\IndexController@index');

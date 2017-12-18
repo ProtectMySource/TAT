@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Categories;
+use App\Customers;
 
 class CategoriesController extends Controller
 {
@@ -113,6 +114,12 @@ class CategoriesController extends Controller
     {
       $category = Categories::where('id',$id)->first();
       $category->delete();
+      $books = Books::all();
+      foreach ($books as $book) {
+        if($book->categories_id==$id){
+          $book->delete();
+        }
+      }
       return redirect()->route('categories.index')->with('status','Đã xóa thành công!');
     }
 

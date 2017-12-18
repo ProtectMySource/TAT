@@ -1,6 +1,5 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.layout.footer')
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -54,11 +53,11 @@
                   <td>{{$book->categories->name}}</td>
                   <td>{{$book->species}}</td>
                   <td class="td-actions text-right">
-                    <a href="{{route('customers.edit',['customer'=>$book->id])}}" type="button" rel="tooltip" title="Edit"
+                    <a href="{{route('books.edit',['book'=>$book->id])}}" type="button" rel="tooltip" title="Sửa"
                       class="btn btn-success btn-simple btn-xs">
                         <i class="fa fa-edit"></i>
                     </a>
-                    <button type="button" rel="tooltip" title="Delete"
+                    <button type="button" rel="tooltip" title="Xóa"
                       class="btn btn-danger btn-simple btn-xs" data-toggle="modal"
                           data-target="#myModal" data-whatever="{{$book->id}}">
                         <i class="fa fa-times"></i>
@@ -79,6 +78,7 @@
   </div>
 </div>
   <!-- Modal -->
+
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

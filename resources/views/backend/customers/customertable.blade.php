@@ -1,6 +1,5 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.layout.footer')
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -66,23 +65,21 @@
     </div>
   </div>
 </div>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Cảnh báo</h4>
-        </div>
-        <div class="modal-body">
-          Bạn có muốn xóa đối tượng này không?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-          <a type="button" class="btn btn-primary btn-yes-modal">Xóa</a>
-        </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cảnh báo</h4>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa đối tượng này không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        <a type="button" class="btn btn-primary btn-yes-modal">Xóa</a>
       </div>
     </div>
   </div>
-
+</div>
 @endsection

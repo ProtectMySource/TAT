@@ -69,7 +69,6 @@
                 </div>
             </nav>
             @yield('content')
-            @yield('footer')
         </div>
     </div>
 </body>
@@ -108,8 +107,9 @@ var modal = $(this);
 var url =  window.location.href;
 var res = url.split("/");
 <?php $url =$_SERVER['REQUEST_URI'];
-$res = explode("/",$url); ?>
-modal.find('.modal-footer a').attr('href','{{route($res[5].'.delete', ['customer' =>""]) }}'+'/'+recipient)
+$res = explode("/",$url);
+$res = explode("?",$res[5]); ?>
+modal.find('.modal-footer a').attr('href','{{route($res[0].'.delete', ['customer' =>""]) }}'+'/'+recipient);
 }
 );
 ClassicEditor
@@ -127,7 +127,6 @@ ClassicEditor
                 });
                 $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
-
 });
 @yield('js')
 </script>

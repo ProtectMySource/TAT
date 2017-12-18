@@ -1,0 +1,37 @@
+avlHelperModule.embedTracking('http://tracking.yomedia.vn/request?evt=req&pid=4f78c06b63a54a979ce7909658a03137&aid=null&r=0&ord=1512644580277' + Date.now());
+avlHelperModule.embedTracking('//analytics.yomedia.vn/collect');
+var advId_4f78c06b63a54a979ce7909658a03137 = '';
+var campId_4f78c06b63a54a979ce7909658a03137 = '';
+var pubId_4f78c06b63a54a979ce7909658a03137 = '';
+var chanId_4f78c06b63a54a979ce7909658a03137 = '3d58e13cbef3493682fe6107ac13e262';
+var placementId_4f78c06b63a54a979ce7909658a03137 = '4f78c06b63a54a979ce7909658a03137';
+// comScore
+<!-- Begin comScore Tag -->
+var _comscore = _comscore || [];
+_comscore.push({ c1: "8", c2: "18889311" ,c3: "2016070110000000012" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+<!-- End comScore Tag -->
+// comScore
+<!-- Begin comScore Tag -->
+var _comscore = _comscore || [];
+_comscore.push({ c1: "8", c2: "18889311" ,c3: "2016090700000000011" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+<!-- End comScore Tag -->
+// comScore
+<!-- Begin comScore Tag -->
+var _comscore = _comscore || [];
+_comscore.push({ c1: "8", c2: "18889311" ,c3: "2016070110000000006" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+<!-- End comScore Tag -->

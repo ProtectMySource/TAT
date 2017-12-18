@@ -1,0 +1,1 @@
+$("body").append("<div id='backtotop'>Back To Top</div>");$(window).scroll(function(){if($(this).scrollTop()>200){$('#backtotop').fadeIn();}else{$('#backtotop').fadeOut();}});$('#backtotop').click(function(){$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup",function(){$('html, body').stop();});$('html,body').animate({scrollTop:0},1200);return false;});
