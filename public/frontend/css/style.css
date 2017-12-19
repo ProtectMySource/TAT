@@ -23,7 +23,6 @@
   margin-left: 4px;
   float: left;
 }
-
 .jRating-star.full {
   background-image: url("frontend/img/star-full.svg");
 }
@@ -277,10 +276,9 @@ body {
          background-size: 100% auto;
   }
 }
-
 @media only screen and (min-width: 769px) {
 .page-wrapper {
-  background-image: url("frontend/img/body-bg-tl.jpg");
+  background-image: url("{{asset('frontend/img/body-bg-tl.jpg')}}");
   background-repeat: no-repeat;
   background-position: top center;
   -moz-background-size: 100% auto;
