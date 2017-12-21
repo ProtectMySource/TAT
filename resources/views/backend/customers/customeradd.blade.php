@@ -88,31 +88,7 @@
                                 <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('password2')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
                               @endif
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-2 form-label">
-                              <label for="" class="{{ $errors->has('dob') ? 'has-error' : '' }}">Ngày sinh <span class="required"> * </span></label>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="input-group">
-                                @if(old('dob'))
-                                  <input id="dobp" type="text" class="form-control docs-date" name="dob" placeholder="Pick a date" value="{{old('dob')}}">
-                                @else
-                                  <input id="dobp" type="text" class="form-control docs-date" name="dob" placeholder="Pick a date">
-                                @endif
-                                <span class="input-group-btn">
-                                  <button type="button" class="btn btn-default btndt" disabled>
-                                    <i class="fa fa-calendar"></i>
-                                  </button>
-                                </span>
-                              </div>
-                            </div>
-                            <div class="col-md-2">
-                              @if ($errors->has('dob'))
-                                <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('dob')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
-                              @endif
-                            </div>
-                          </div>
+                          </div>                        
                         <button type="submit" class="btn btn-primary pull-right btnsub">Tạo mới</button>
                         <a class="btn btn-primary pull-right" href="{{route('customers.index')}}">Hủy</a>
                         <div class="clearfix"></div>

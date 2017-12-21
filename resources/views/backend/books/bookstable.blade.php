@@ -36,6 +36,7 @@
                 <th>@sortablelink('like', 'Lượt thích')</th>
                 <th>@sortablelink('categories_id', 'Danh mục')</th>
                 <th>Thể loại</th>
+                <th>Ảnh</th>
                 <th>Tùy chọn</th>
               </thead>
               <tbody>
@@ -52,6 +53,7 @@
                   <td>{{$book->like}}</td>
                   <td>{{$book->categories->name}}</td>
                   <td>{{$book->species}}</td>
+                  <td> <img src="{{URL::to('/uploads/images').'/'.$book->image}}" alt="" height="50" width="50"> </td>
                   <td class="td-actions text-right">
                     <a href="{{route('books.edit',['book'=>$book->id])}}" type="button" rel="tooltip" title="Sửa"
                       class="btn btn-success btn-simple btn-xs">

@@ -48,8 +48,7 @@ class CustomerController extends Controller
           'name'=>'required',
           'email'=>'required|email|unique:customers,email',
           'password1'=>'required',
-          'password2'=>'required',
-          'dob'=>'required|date'
+          'password2'=>'required'
         ];
         $messages = [
           'required' => 'Yêu cầu nhập',
@@ -65,7 +64,6 @@ class CustomerController extends Controller
         $customer->email = $request->email;
         $customer->password = Hash::make($request->password1);
         $customer->password2 = Hash::make($request->password2);
-        $customer->dob = $request->dob;
 
         $customer->save();
 
@@ -110,8 +108,7 @@ class CustomerController extends Controller
         'name'=>'required',
         'email'=> Rule::unique('customers')->ignore($id),
         'password1'=>'required',
-        'password2'=>'required',
-        'dob'=>'required|date'
+        'password2'=>'required'
       ];
       $valid2=[
         'email'=>'required|email'
@@ -131,9 +128,6 @@ class CustomerController extends Controller
 
       $customer->name = $request->name;
       $customer->email = $request->email;
-      $customer->password = Hash::make($request->password1);
-      $customer->password2 = Hash::make($request->password2);
-      $customer->dob = $request->dob;
 
       $customer->save();
       return redirect()->route('customers.index')->with('status','Chỉnh sữa thành công!');
@@ -175,7 +169,7 @@ class CustomerController extends Controller
       $customers = Customers::where('id',$search)
                     ->orwhere('name','like','%'.$search.'%')
                       ->orwhere('email','like','%'.$search.'%')
-                        ->orwhere('dob',$search)->sortable()->paginate(5);
+                        ->sortable()->paginate(5);
       return view('backend.customers.customertable',['customers'=>$customers]);
     }
 }

@@ -127,7 +127,14 @@ ClassicEditor
                 });
                 $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-multiple-adv-btv').select2({
+      maximumSelectionLength: 9
+    });
+    $('.js-example-basic-multiple-adv-qc').select2({
+      maximumSelectionLength: 5
+    });
 });
 @yield('js')
 </script>
+<script src="{{ asset('js/bookjs.js') }}"></script>
 </html>

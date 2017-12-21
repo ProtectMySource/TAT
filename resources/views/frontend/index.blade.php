@@ -5,7 +5,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>TA-BOOK</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <meta name="description" content="Đọc truyện convert bản văn phong vietphrase có chỉnh sửa edit, chương truyện được cập nhật liên tục theo tác giả">
+      <meta name="description" content="Đọc truyện">
       <meta name="keywords" content="truyen convert, doc truyen, truyen, van phong, han viet, vietphrase">
       <meta name="generator" content="TruyenCV">
       <meta name="robots" content="follow, all">
@@ -25,14 +25,6 @@
          //]]>
       </script>
       <script type="text/javascript" src="{{asset('frontend/js/rocket.min.js.tải xuống')}}"></script>
-      <link rel="alternate" type="application/rss+xml" title="Truyện Convert - RSS Feed" href="http://truyencv.com/rss/">
-      <link rel="icon" type="image/png" href="http://truyencv.com/templates/truyencv-green/assets/images/favicon.ico">
-      <link rel="icon" type="image/png" sizes="32x32" href="http://truyencv.com/images/57x57.png">
-      <link rel="apple-touch-icon" href="http://truyencv.com/images/72x72.png" sizes="72x72">
-      <link rel="apple-touch-icon" href="http://truyencv.com/images/114x114.png" sizes="144x144">
-      <link rel="apple-touch-icon" href="http://truyencv.com/images/57x57.png" sizes="57x57">
-      <link rel="apple-touch-icon" href="http://truyencv.com/images/114x114.png" sizes="114x114">
-      <link rel="apple-touch-icon" href="http://truyencv.com/images/114x114.png" sizes="1x1">
       <link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet">
       <link href="{{asset('frontend/css/swiper.min.css')}}" rel="stylesheet">
       <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
@@ -53,39 +45,21 @@
             <nav class="navbar navbar-inverse">
                <div class="container">
                   <div class="navbar-header">
-                     <a href="http://truyencv.com/" class="navbar-logo hidden-sm hidden-xs"><img class="img-responsive " src="{{asset('frontend/img/logo4.jpg')}}" alt=""></a> <a href="http://truyencv.com/#" class="navbar-search-btn js-open-search-box-mobile visible-xs visible-sm"> <i class="truyencv-icon icon-search"></i> </a>
+                     <a href="{{route('frontend.index')}}" class="navbar-logo hidden-sm hidden-xs"><img class="img-responsive " src="{{asset('frontend/img/logo4.jpg')}}" alt=""></a> <a href="http://truyencv.com/#" class="navbar-search-btn js-open-search-box-mobile visible-xs visible-sm"> <i class="truyencv-icon icon-search"></i> </a>
                      <div class="navbar-category">
                         <button class="navbar-category-btn js-open-sidebar"> <span class="lines"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </span> <span class="hidden-xs hidden-sm">Danh mục</span> </button>
                         <ul class="navbar-category-list">
-                           <li class="col-xs-4"> <a href="http://truyencv.com/danh-sach/moi-cap-nhat/">Truyện mới</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/danh-sach/hoan-thanh/">Truyện hoàn thành</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/danh-sach/truyen-de-cu/">Truyện đề cử</a>  </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/danh-sach/sang-tac/">Truyện sáng tác</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/bang-xep-hang/">Bảng Xếp Hạng</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/loc-truyen/" rel="nofollow">Lọc truyện <span class="label label-warning">Mới</span></a> </li>
+                          @foreach($categories as $c)
+                            <li class="col-xs-4"> <a href="{{route('frontend.danhsach',['category'=>str_slug($c->name)])}}">{{$c->name}}</a> </li>
+                          @endforeach
                         </ul>
                      </div>
                      <div class="navbar-category">
                         <button class="navbar-category-btn js-open-sidebar"> <span class="lines"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </span> <span class="hidden-xs hidden-sm">Thể loại</span> </button>
                         <ul class="navbar-category-list">
-                           <li class="col-xs-4"> <a href="http://truyencv.com/tien-hiep/" title="Truyện Tiên Hiệp">Tiên Hiệp</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/kiem-hiep/" title="Truyện Kiếm Hiệp">Kiếm Hiệp</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/do-thi/" title="Truyện Đô Thị">Đô Thị</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/huyen-ao/" title="Truyện Huyền Ảo">Huyền Ảo</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/ngon-tinh/" title="Truyện Ngôn Tình">Ngôn Tình</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/di-nang/" title="Truyện Dị Năng">Dị Năng</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/vong-du/" title="Truyện Võng Du">Võng Du</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/di-gioi/" title="Truyện Dị Giới">Dị Giới</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/khoa-huyen/" title="Truyện Khoa Huyễn">Khoa Huyễn</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/quan-su/" title="Truyện Quân Sự">Quân Sự</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/lich-su/" title="Truyện Lịch Sử">Lịch Sử</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/xuyen-khong/" title="Truyện Xuyên Không">Xuyên Không</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/trung-sinh/" title="Truyện Trùng Sinh">Trùng Sinh</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/canh-ky/" title="Truyện Cạnh Kỹ">Cạnh Kỹ</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/dong-nhan/" title="Truyện Đồng Nhân">Đồng Nhân</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/linh-di/" title="Truyện Linh Dị">Linh Dị</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/mat-the/" title="Truyện Mạt Thế">Mạt Thế</a> </li>
-                           <li class="col-xs-4"> <a href="http://truyencv.com/nu-hiep/" title="Truyện Nữ Hiệp">Nữ Hiệp</a> </li>
+                          @foreach($species as $s)
+                            <li class="col-xs-4"> <a href="{{route('frontend.theloai',['specy'=>str_slug($s->name)])}}">{{$s->name}}</a> </li>
+                          @endforeach
                         </ul>
                      </div>
                   </div>
@@ -98,7 +72,7 @@
                            </div>
                         </li>
                         <li>
-                           <div class="user-block"> <i class="truyencv-icon icon-user"></i> <a href="http://truyencv.com/#modal-login" data-toggle="modal"> Đăng nhập </a> <span class="diver">|</span> <a href="http://truyencv.com/#modal-register" data-toggle="modal"> Đăng ký </a> </div>
+                           <div class="user-block"> <i class="truyencv-icon icon-user"></i> <a href="{{URL::current()}}/#modal-login" data-toggle="modal"> Đăng nhập </a> <span class="diver">|</span> <a href="http://truyencv.com/#modal-register" data-toggle="modal"> Đăng ký </a> </div>
                         </li>
                      </ul>
                      <script type="text/javascript">var islogin='';</script>
@@ -119,33 +93,23 @@
                                     <h2>BTV đề cử</h2>
                                     <div class="swiper-container swiper-container-horizontal">
                                        <div class="swiper-wrapper" style="transform: translate3d(-376px, 0px, 0px); transition-duration: 0ms;">
-                                          <div class="swiper-slide swiper-slide-prev" style="width: 346px; margin-right: 30px;">
-                                             <div class="item">
-                                                <div class="thumb"> <a href="http://truyencv.com/phu-tran-khung-thuong/" title="Phù Trấn Khung Thương"><img class="img-responsive" alt="Phù Trấn Khung Thương" src="{{asset('frontend/img/phu-tran-khung-thuong-poster-20161129-200x300.jpg')}}"></a> </div>
-                                                <div class="info">
-                                                   <h2 class="title"> <a href="http://truyencv.com/phu-tran-khung-thuong/" title="Phù Trấn Khung Thương">Phù Trấn Khung Thương</a> </h2>
-                                                   <p class="description"> Ngọc phù như ý, phá pháp Thập Phương. Uy hiếp thiên hạ, vạn cổ làm đầu. Ngọc Phù Tông </p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="swiper-slide swiper-slide-active" style="width: 346px; margin-right: 30px;">
-                                             <div class="item">
-                                                <div class="thumb"> <a href="http://truyencv.com/bat-hu-pham-nhan/" title="Bất Hủ Phàm Nhân"><img class="img-responsive" alt="Bất Hủ Phàm Nhân" src="{{asset('frontend/img/bat-hu-pham-nhan-poster-20160907-200x300.jpg')}}"></a> </div>
-                                                <div class="info">
-                                                   <h2 class="title"> <a href="http://truyencv.com/bat-hu-pham-nhan/" title="Bất Hủ Phàm Nhân">Bất Hủ Phàm Nhân</a> </h2>
-                                                   <p class="description"> Ta, chỉ có phàm căn, một kẻ phàm nhân! Ta, gọi Mạc Vô Kỵ! Ta, muốn Bất Hủ! </p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="swiper-slide swiper-slide-next" style="width: 346px; margin-right: 30px;">
-                                             <div class="item">
-                                                <div class="thumb"> <a href="http://truyencv.com/than-dao-dan-ton/" title="Thần Đạo Đan Tôn"><img class="img-responsive" alt="Thần Đạo Đan Tôn" src="{{asset('frontend/img/than-dao-dan-ton-poster-20161018-200x300.jpg')}}"></a> </div>
-                                                <div class="info">
-                                                   <h2 class="title"> <a href="http://truyencv.com/than-dao-dan-ton/" title="Thần Đạo Đan Tôn">Thần Đạo Đan Tôn</a> </h2>
-                                                   <p class="description"> Cường giả tuyệt thế , một đời Đan Đế Lăng Hàn vì truy cầu con đường thành thần mà Vẫn Lạc , vạn năm sau khi mang </p>
-                                                </div>
-                                             </div>
-                                          </div>
+                                          @php
+                                            $count=0;
+                                          @endphp
+                                          @foreach($books as $b)
+                                            @if($b->adv=='BTV' && $count < 3 )
+                                            @php $count++; @endphp
+                                            <div class="swiper-slide swiper-slide-prev" style="width: 346px; margin-right: 30px;">
+                                               <div class="item">
+                                                  <div class="thumb"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}"><img class="img-responsive" alt="{{$b->name}}" src="{{URL::to('/uploads/images').'/'.$b->image}}"></a> </div>
+                                                  <div class="info">
+                                                     <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}/" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                                     <p class="description"> {!!$b->preview!!} </p>
+                                                  </div>
+                                               </div>
+                                            </div>
+                                            @endif
+                                          @endforeach
                                        </div>
                                        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
                                     </div>
@@ -158,50 +122,26 @@
                               <div class="block-content">
                                  <div class="editors-choice-list">
                                     <div class="row">
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/de-ba/" title="Đế Bá">Đế Bá</a> </h2>
-                                             <div class="view text-secondary"> <strong>2955093</strong> người truy cập </div>
-                                             <p class="description"> Ngàn vạn năm trước, Lý Thất Dạ trồng xuống một cây Thúy Trúc.Tám trăm vạn năm trước, Lý Thất Dạ nuôi một đầu cá </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/vo-dich-dao-quan/" title="Đạo Quân">Đạo Quân</a> </h2>
-                                             <div class="view text-secondary"> <strong>60714</strong> người truy cập </div>
-                                             <p class="description"> Một cái Địa Cầu Thần cấp trộm mộ tông sư, xâm nhập Tu Chân Giới cố sự. . .Trong đào hoa nguyên, có tiếng ca.Sơn </p>
-                                          </div>
-                                       </div>
-                                       <div class="clearfix hidden-xs"></div>
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/van-gioi-thien-ton/" title="Vạn Giới Thiên Tôn">Vạn Giới Thiên Tôn</a> </h2>
-                                             <div class="view text-secondary"> <strong>45615</strong> người truy cập </div>
-                                             <p class="description"> Thiên là vật gì? Cao cao tại thượng, uy nghiêm khó lường, là pháp tắc, là giới luật, là vô tình, là lãnh khốc. Thiên </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/nhat-niem-vinh-hang/" title="Nhất Niệm Vĩnh Hằng">Nhất Niệm Vĩnh Hằng</a> </h2>
-                                             <div class="view text-secondary"> <strong>530701</strong> người truy cập </div>
-                                             <p class="description"> Nhất niệm thành thương hải , nhất niệm hóa ruộng dâu. nhất niệm chém ngàn ma , nhất niệm tru vạn tiên. duy ta niệm... </p>
-                                          </div>
-                                       </div>
-                                       <div class="clearfix hidden-xs"></div>
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/toan-nang-tu-luyen-chi-ton/" title="Toàn Năng Tu Luyện Chí Tôn">Toàn Năng Tu Luyện Chí Tôn</a> </h2>
-                                             <div class="view text-secondary">  <strong>56030</strong> người truy cập </div>
-                                             <p class="description"> Xuyên qua cùng điện thoại dung hợp, có được điện thoại tất cả công năng, Chân N Hạch đại não nhiều hạch vận hành, </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-xs-12 col-sm-6 btv-2">
-                                          <div class="item">
-                                             <h2 class="title"> <a href="http://truyencv.com/vo-cuong/" title="Vô Cương">Vô Cương</a> </h2>
-                                             <div class="view text-secondary"> <strong>21918</strong> người truy cập </div>
-                                             <p class="description"> Ưng kích trường không, cá chép hóa rồng, gấu gầm hổ khiếu, vạn vật đều có linh. Mạt pháp chi cực, cực từ luân chuyển, </p>
-                                          </div>
-                                       </div>
+                                      @php
+                                        $count=0;
+                                      @endphp
+                                      @foreach($books as $b)
+                                        @if($b->adv =='BTV')
+                                        @php
+                                          $count++;
+                                        @endphp
+                                        @endif
+                                        @if($b->adv=='BTV' && $count >= 3 )
+                                        @php $count++; @endphp
+                                        <div class="col-xs-12 col-sm-6 btv-2">
+                                           <div class="item">
+                                              <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                              <div class="view text-secondary"> <strong>{{$b->view}}</strong> người truy cập </div>
+                                              <p class="description"> {!!$b->preview!!} </p>
+                                           </div>
+                                        </div>
+                                        @endif
+                                      @endforeach
                                        <div class="clearfix hidden-xs"></div>
                                     </div>
                                  </div>
@@ -211,109 +151,44 @@
                         <div class="col-xs-12 col-sm-12 col-md-4">
                            <div class="block block-default block-readers-choice">
                               <div class="block-header">
-                                 <h2 class="title"> <a href="http://truyencv.com/danh-sach/truyen-de-cu/" title="Được đề cử">Người đọc đề cử</a> </h2>
+                                 <h2 class="title"> <a href="" title="Được đề cử">Người đọc đề cử</a> </h2>
                               </div>
                               <div class="block-content">
                                  <ul class="list-group">
+                                   @php $count = 1 @endphp
+                                   @foreach($books_decu as $b)
+                                    @if($count == 1)
                                     <li class="list-group-item list-group-item-primary item-featured">
                                        <div class="content">
                                           <div class="index index-1 index-star"> 1 </div>
                                           <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái">Tối Cường Nam Tông Chủ Tại Nữ Môn Phái</a> </h2>
-                                             <div class="view text-secondary"> <span class="text-red fz-16">657</span> đề cử </div>
+                                             <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                             <div class="view text-secondary"> <span class="text-red fz-16">{{$b->recommend}}</span> đề cử </div>
                                              <div class="extra-info">
-                                                <p>Thể loại: <a href="http://truyencv.com/trung-sinh/">Trùng Sinh</a></p>
-                                                <p>Tác giả: Kỵ Mã Quân</p>
+                                                <p>Thể loại: <a href="">{{$b->species}}</a></p>
+                                                <p>Tác giả: {{$b->author}}</p>
                                              </div>
                                           </div>
                                           <div class="thumb">
-                                             <div class="book-cover"> <a class="book-cover-link" href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> <img src="{{asset('frontend/img/toi-cuong-nam-tong-chu-tai-nu-mon-phai-poster-1511596837-200x300.jpg')}}" alt="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> </a> <span class="book-cover-shadow"></span> </div>
+                                             <div class="book-cover"> <a class="book-cover-link" href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}"> <img src="{{URL::to('/uploads/images').'/'.$b->image}}" alt="{{$b->name}}"> </a> <span class="book-cover-shadow"></span> </div>
                                           </div>
                                        </div>
                                     </li>
+                                    @else
                                     <li class="list-group-item list-group-item-primary">
                                        <div class="content">
-                                          <div class="index index-2 index-star"> 2 </div>
+                                          <div class="index index-2 index-star"> {{$count}} </div>
                                           <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/vo-dich-kiem-vuc/" title="Vô Địch Kiếm Vực">Vô Địch Kiếm Vực</a> </h2>
-                                             <div class="view text-secondary"> 442 </div>
+                                             <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                             <div class="view text-secondary"> {{$b->recommend}} </div>
                                           </div>
                                        </div>
                                     </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-3 index-star"> 3 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/tu-chan-noi-chuyen-phiem-quan/" title="Tu Chân Nói Chuyện Phiếm Quần">Tu Chân Nói Chuyện Phiếm Quần</a> </h2>
-                                             <div class="view text-secondary"> 441 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-4 index-star"> 4 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/than-dao-dan-ton/" title="Thần Đạo Đan Tôn">Thần Đạo Đan Tôn</a> </h2>
-                                             <div class="view text-secondary"> 396 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-5 index-star"> 5 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/ta-di-gioi-hac-khoa-ky-quan-net/" title="Ta Dị Giới Hắc Khoa Kỹ Quán Net">Ta Dị Giới Hắc Khoa Kỹ Quán Net</a> </h2>
-                                             <div class="view text-secondary"> 338 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-6 index-star"> 6 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/pokemon-tuy-than-mang-theo-master-ball/" title="Pokemon Tùy Thân Mang Theo Master Ball">Pokemon Tùy Thân Mang Theo Master Ball</a> </h2>
-                                             <div class="view text-secondary"> 306 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-7 index-star"> 7 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/sieu-viet-tai-chinh/" title="Siêu Việt Tài Chính">Siêu Việt Tài Chính</a> </h2>
-                                             <div class="view text-secondary"> 301 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-8 index-star"> 8 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/thien-dao-thu-vien/" title="Thiên Đạo Thư Viện">Thiên Đạo Thư Viện</a> </h2>
-                                             <div class="view text-secondary"> 292 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-9 index-star"> 9 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/van-co-long-de/" title="Vạn Cổ Long Đế">Vạn Cổ Long Đế</a> </h2>
-                                             <div class="view text-secondary"> 262 </div>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-primary">
-                                       <div class="content">
-                                          <div class="index index-10 index-star"> 10 </div>
-                                          <div class="info">
-                                             <h2 class="title"> <a href="http://truyencv.com/cuu-vot-nhi-thu-nguyen-ma-vuong/" title="Cứu Vớt Nhị Thứ Nguyên Ma Vương">Cứu Vớt Nhị Thứ Nguyên Ma Vương</a> </h2>
-                                             <div class="view text-secondary"> 205 </div>
-                                          </div>
-                                       </div>
-                                    </li>
+                                    @endif
+                                    @php $count++ @endphp
+                                   @endforeach
                                  </ul>
-                                 <p class="pull-right hidden-md hidden-lg"><a href="http://truyencv.com/danh-sach/truyen-de-cu/" title="xem tiếp">Xem tiếp</a></p>
+
                               </div>
                            </div>
                         </div>
@@ -331,21 +206,21 @@
                            <div class="slider-thumb">
                               <div class="swiper-container swiper-container-horizontal swiper-container-3d swiper-container-coverflow">
                                  <div class="swiper-wrapper" style="transform: translate3d(-1795px, 0px, 0px); transition-duration: 0ms;">
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, -1187.5px) rotateX(0deg) rotateY(0deg); z-index: -11; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/than-mach-chi-ton/" title="Thần Mạch Chí Tôn"> <img class="img-responsive" src="{{asset('frontend/img/than-mach-chi-ton-poster-1512294514-200x300.jpg')}}" alt="Thần Mạch Chí Tôn"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -1068.75px) rotateX(0deg) rotateY(0deg); z-index: -10; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/chi-ton-vo-than-he-thong/" title="Chí Tôn Võ Thần Hệ Thống"> <img class="img-responsive" src="{{asset('frontend/img/chi-ton-vo-than-he-thong-poster-1512122774-200x300.jpg')}}" alt="Chí Tôn Võ Thần Hệ Thống"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -950px) rotateX(0deg) rotateY(0deg); z-index: -9; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/dau-pha-chi-duoc-phong/" title="Đấu Phá Chi Dược Phong"> <img class="img-responsive" src="{{asset('frontend/img/dau-pha-chi-duoc-phong-poster-1512312399-200x300.jpg')}}" alt="Đấu Phá Chi Dược Phong"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -831.25px) rotateX(0deg) rotateY(0deg); z-index: -7; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> <img class="img-responsive" src="{{asset('frontend/img/toi-cuong-nam-tong-chu-tai-nu-mon-phai-poster-1511596837-200x300.jpg')}}" alt="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -712.5px) rotateX(0deg) rotateY(0deg); z-index: -6; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/yeu-than-ky/" title="Yêu Thần Ký"> <img class="img-responsive" src="{{asset('frontend/img/yeu-than-ky-poster-20150617-200x300.jpg')}}" alt="Yêu Thần Ký"> </a>  </div>
-                                    <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, -593.75px) rotateX(0deg) rotateY(0deg); z-index: -5; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/than-mach-chi-ton/" title="Thần Mạch Chí Tôn"> <img class="img-responsive" src="{{asset('frontend/img/than-mach-chi-ton-poster-1512294514-200x300.jpg')}}" alt="Thần Mạch Chí Tôn"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -475px) rotateX(0deg) rotateY(0deg); z-index: -4; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/chi-ton-vo-than-he-thong/" title="Chí Tôn Võ Thần Hệ Thống"> <img class="img-responsive" src="{{asset('frontend/img/chi-ton-vo-than-he-thong-poster-1512122774-200x300.jpg')}}" alt="Chí Tôn Võ Thần Hệ Thống"> </a> </div>
-                                    <div class="swiper-slide" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -356.25px) rotateX(0deg) rotateY(0deg); z-index: -3; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/dau-pha-chi-duoc-phong/" title="Đấu Phá Chi Dược Phong"> <img class="img-responsive" src="{{asset('frontend/img/dau-pha-chi-duoc-phong-poster-1512312399-200x300.jpg')}}" alt="Đấu Phá Chi Dược Phong"> </a> </div>
-                                    <div class="swiper-slide" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -237.5px) rotateX(0deg) rotateY(0deg); z-index: -1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> <img class="img-responsive" src="{{asset('frontend/img/toi-cuong-nam-tong-chu-tai-nu-mon-phai-poster-1511596837-200x300.jpg')}}" alt="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -118.75px) rotateX(0deg) rotateY(0deg); z-index: 0; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/yeu-than-ky/" title="Yêu Thần Ký"> <img class="img-responsive" src="{{asset('frontend/img/yeu-than-ky-poster-20150617-200x300.jpg')}}" alt="Yêu Thần Ký"> </a>  </div>
-                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); z-index: 1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/than-mach-chi-ton/" title="Thần Mạch Chí Tôn"> <img class="img-responsive" src="{{asset('frontend/img/than-mach-chi-ton-poster-1512294514-200x300.jpg')}}" alt="Thần Mạch Chí Tôn"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -118.75px) rotateX(0deg) rotateY(0deg); z-index: 0; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/chi-ton-vo-than-he-thong/" title="Chí Tôn Võ Thần Hệ Thống"> <img class="img-responsive" src="{{asset('frontend/img/chi-ton-vo-than-he-thong-poster-1512122774-200x300.jpg')}}" alt="Chí Tôn Võ Thần Hệ Thống"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -237.5px) rotateX(0deg) rotateY(0deg); z-index: -1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/dau-pha-chi-duoc-phong/" title="Đấu Phá Chi Dược Phong"> <img class="img-responsive" src="{{asset('frontend/img/dau-pha-chi-duoc-phong-poster-1512312399-200x300.jpg')}}" alt="Đấu Phá Chi Dược Phong"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -356.25px) rotateX(0deg) rotateY(0deg); z-index: -3; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> <img class="img-responsive" src="{{asset('frontend/img/toi-cuong-nam-tong-chu-tai-nu-mon-phai-poster-1511596837-200x300.jpg')}}" alt="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> </a> </div>
-                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -475px) rotateX(0deg) rotateY(0deg); z-index: -4; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="http://truyencv.com/yeu-than-ky/" title="Yêu Thần Ký"> <img class="img-responsive" src="{{asset('frontend/img/yeu-than-ky-poster-20150617-200x300.jpg')}}" alt="Yêu Thần Ký"> </a>  </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, -1187.5px) rotateX(0deg) rotateY(0deg); z-index: -11; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[0]->id])}}" title="{{$books_qc[0]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[0]->image)}}" alt="$books_qc[0]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -1068.75px) rotateX(0deg) rotateY(0deg); z-index: -10; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[1]->id])}}" title="{{$books_qc[1]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[1]->image)}}" alt="$books_qc[1]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -950px) rotateX(0deg) rotateY(0deg); z-index: -9; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[2]->id])}}" title="{{$books_qc[2]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[2]->image)}}" alt="$books_qc[2]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -831.25px) rotateX(0deg) rotateY(0deg); z-index: -7; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[3]->id])}}" title="{{$books_qc[3]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[3]->image)}}" alt="$books_qc[3]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -712.5px) rotateX(0deg) rotateY(0deg); z-index: -6; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[4]->id])}}" title="{{$books_qc[4]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[4]->image)}}" alt="$books_qc[4]->name"> </a>  </div>
+                                    <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, -593.75px) rotateX(0deg) rotateY(0deg); z-index: -5; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[0]->id])}}" title="{{$books_qc[0]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[0]->image)}}" alt="$books_qc[0]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -475px) rotateX(0deg) rotateY(0deg); z-index: -4; transition-duration: 0ms; margin-right: 30px;"> <a class="item" <a class="item" href="{{route('frontend.show',['id'=>$books_qc[1]->id])}}" title="{{$books_qc[1]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[1]->image)}}" alt="$books_qc[1]->name"> </a> </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -356.25px) rotateX(0deg) rotateY(0deg); z-index: -3; transition-duration: 0ms; margin-right: 30px;"> <a class="item" <a class="item" href="{{route('frontend.show',['id'=>$books_qc[2]->id])}}" title="{{$books_qc[2]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[2]->image)}}" alt="$books_qc[2]->name"> </a> </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -237.5px) rotateX(0deg) rotateY(0deg); z-index: -1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[3]->id])}}" title="{{$books_qc[3]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[3]->image)}}" alt="$books_qc[3]->name"> </a> </a> </div>
+                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -118.75px) rotateX(0deg) rotateY(0deg); z-index: 0; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[4]->id])}}" title="{{$books_qc[4]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[4]->image)}}" alt="$books_qc[4]->name"> </a>  </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0" style="transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); z-index: 1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[0]->id])}}" title="{{$books_qc[0]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[0]->image)}}" alt="$books_qc[0]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="1" style="transform: translate3d(0px, 0px, -118.75px) rotateX(0deg) rotateY(0deg); z-index: 0; transition-duration: 0ms; margin-right: 30px;"> <a class="item" <a class="item" href="{{route('frontend.show',['id'=>$books_qc[1]->id])}}" title="{{$books_qc[1]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[1]->image)}}" alt="$books_qc[1]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="transform: translate3d(0px, 0px, -237.5px) rotateX(0deg) rotateY(0deg); z-index: -1; transition-duration: 0ms; margin-right: 30px;"> <a class="item" <a class="item" href="{{route('frontend.show',['id'=>$books_qc[2]->id])}}" title="{{$books_qc[2]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[2]->image)}}" alt="$books_qc[2]->name"> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="transform: translate3d(0px, 0px, -356.25px) rotateX(0deg) rotateY(0deg); z-index: -3; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[3]->id])}}" title="{{$books_qc[3]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[3]->image)}}" alt="$books_qc[3]->name"> </a> </a> </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="transform: translate3d(0px, 0px, -475px) rotateX(0deg) rotateY(0deg); z-index: -4; transition-duration: 0ms; margin-right: 30px;"> <a class="item" href="{{route('frontend.show',['id'=>$books_qc[4]->id])}}" title="{{$books_qc[4]->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$books_qc[4]->image)}}" alt="$books_qc[4]->name"> </a>  </div>
                                  </div>
                                  <div class="swiper-button-prev"><i class="truyencv-icon icon-prev"></i></div>
                                  <div class="swiper-button-next"><i class="truyencv-icon icon-next"></i></div>
@@ -356,42 +231,42 @@
                                  <div class="swiper-wrapper" style="transition-duration: 0ms;">
                                     <div class="swiper-slide" style="width: 310px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
                                        <div class="item text-center">
-                                          <h2 class="title">Thần Mạch Chí Tôn</h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">5.3k</span> người truy cập </div>
-                                          <p class="description"> Nghèo túng thiếu gia Nam Phong, thu hoạch được Khai Thiên Chi Thần truyền thừa, thức tỉnh kinh thế linh mạch, tập được vô thượng chú khí chi thuật.	Từ </p>
+                                          <h2 class="title">{{$books_qc[0]->name}}</h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_qc[0]->view}}</span> người truy cập </div>
+                                          <p class="description"> {{$books_qc[0]->preview}}</p>
 
                                        </div>
                                     </div>
                                     <div class="swiper-slide" style="width: 310px; opacity: 1; transform: translate3d(-310px, 0px, 0px); transition-duration: 0ms;">
                                        <div class="item text-center">
-                                          <h2 class="title">Chí Tôn Võ Thần Hệ Thống</h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">3.2k</span> người truy cập </div>
-                                          <p class="description"> Tên trộm mộ Vương Lân tại thần bí trong cổ mộ, được "Chí Tôn Võ Thần Hệ Thống", vốn cho là mình từ đó có thể đạp vào nhân sinh đỉnh </p>
+                                          <h2 class="title">{{$books_qc[1]->name}}</h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_qc[1]->view}}</span> người truy cập </div>
+                                          <p class="description"> {{$books_qc[1]->preview}}</p>
 
                                        </div>
                                     </div>
                                     <div class="swiper-slide" style="width: 310px; opacity: 1; transform: translate3d(-620px, 0px, 0px); transition-duration: 0ms;">
                                        <div class="item text-center">
-                                          <h2 class="title">Đấu Phá Chi Dược Phong</h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">3k</span> người truy cập </div>
-                                          <p class="description"> 【 Phi lô mạng tiếng Trung cấp A ký kết tác phẩm: Đấu phá chi dược phong 】 dùng dược tộc chi thân, siêu tuyệt phẩm huyết mạch chi lực, thành </p>
+                                          <h2 class="title">{{$books_qc[2]->name}}</h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_qc[2]->view}}</span> người truy cập </div>
+                                          <p class="description"> {{$books_qc[2]->preview}} </p>
 
                                        </div>
                                     </div>
                                     <div class="swiper-slide swiper-slide-prev" style="width: 310px; opacity: 1; transform: translate3d(-930px, 0px, 0px); transition-duration: 0ms;">
                                        <div class="item text-center">
-                                          <h2 class="title">Tối Cường Nam Tông Chủ Tại Nữ Môn Phái</h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">6.8k</span> người truy cập </div>
-                                          <p class="description"> Tật Hỏa Đế Quân trọng sinh làm 1 đứa con bị bỏ rơi, tiếp chưởng Tông Chủ trọng trách!	Cái gì ? Bảy cái sư tỷ, bốn cái Kiếm Thị, toàn </p>
+                                          <h2 class="title">{{$books_qc[3]->name}}</h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_qc[3]->view}}</span> người truy cập </div>
+                                          <p class="description"> {{$books_qc[3]->preview}} </p>
 
                                        </div>
                                     </div>
                                     <div class="swiper-slide swiper-slide-active" style="width: 310px; opacity: 1; transform: translate3d(-1240px, 0px, 0px); transition-duration: 0ms;">
                                        <div class="item text-center">
-                                          <h2 class="title">Yêu Thần Ký</h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">2.8M</span> người truy cập </div>
-                                          <p class="description"> Yêu Thần vừa ra, ai dám tranh phong. Mạnh nhất Yêu Linh sư Nhiếp Ly bởi vì một quyển thần bí thời không Yêu Linh Chi </p>
-                                          
+                                          <h2 class="title">{{$books_qc[4]->name}}</h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_qc[4]->view}}</span> người truy cập </div>
+                                          <p class="description"> {{$books_qc[4]->preview}} </p>
+
                                        </div>
                                     </div>
                                  </div>
@@ -406,206 +281,20 @@
                            </div>
                            <div class="block-content">
                               <ul class="list-group">
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/su-thuong-toi-nguu-bao-quan/" title="Sử Thượng Tối Ngưu Bạo Quân"> <img class="img-responsive" src="{{asset('frontend/img/su-thuong-toi-nguu-bao-quan-poster-20170821-200x300.jpg')}}" alt="Sử Thượng Tối Ngưu Bạo Quân"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/su-thuong-toi-nguu-bao-quan/" title="Sử Thượng Tối Ngưu Bạo Quân">Sử Thượng Tối Ngưu Bạo Quân</a> </h2>
-                                          <div class="chap">Vô địch hoàng thượng &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/su-thuong-toi-nguu-bao-quan/chuong-963/" title="Chương 963">Chương 963</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜHuyền ๖ۣۜThiên &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/thai-thuong-kiem-ton/" title="Thái Thượng Kiếm Tôn"> <img class="img-responsive" src="{{asset('frontend/img/thai-thuong-kiem-ton-poster-20170929-200x300.jpg')}}" alt="Thái Thượng Kiếm Tôn"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/thai-thuong-kiem-ton/" title="Thái Thượng Kiếm Tôn">Thái Thượng Kiếm Tôn</a> </h2>
-                                          <div class="chap">Phiêu Linh Huyễn &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/thai-thuong-kiem-ton/chuong-1066/" title="Chương 1066">Chương 1066</a> &nbsp; </div>
-                                          <div class="time"> ♫ ๖ۣۜLucario ♫ &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/trong-sinh-lam-kiem-thanh-tai-nhat-ban/" title="Trọng Sinh Làm Kiếm Thánh Tại Nhật Bản"> <img class="img-responsive" src="{{asset('frontend/img/trong-sinh-lam-kiem-thanh-tai-nhat-ban-poster-1511696931-200x300.jpg')}}" alt="Trọng Sinh Làm Kiếm Thánh Tại Nhật Bản"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/trong-sinh-lam-kiem-thanh-tai-nhat-ban/" title="Trọng Sinh Làm Kiếm Thánh Tại Nhật Bản">Trọng Sinh Làm Kiếm Thánh Tại Nhật Bản</a> </h2>
-                                          <div class="chap">Tiểu tốt không có qua sông &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/trong-sinh-lam-kiem-thanh-tai-nhat-ban/chuong-126/" title="Chương 126">Chương 126</a> &nbsp; </div>
-                                          <div class="time"> MisDax &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/trong-sinh-chi-toi-cuong-kiem-than/" title="Trọng Sinh Chi Tối Cường Kiếm Thần"> <img class="img-responsive" src="{{asset('frontend/img/trong-sinh-chi-toi-cuong-kiem-than-poster-20170427-200x300.png')}}" alt="Trọng Sinh Chi Tối Cường Kiếm Thần"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/trong-sinh-chi-toi-cuong-kiem-than/" title="Trọng Sinh Chi Tối Cường Kiếm Thần">Trọng Sinh Chi Tối Cường Kiếm Thần</a> </h2>
-                                          <div class="chap">Thiên Vận Lão Miêu &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/trong-sinh-chi-toi-cuong-kiem-than/chuong-1960/" title="Chương 1960">Chương 1960</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜHuyền ๖ۣۜThiên &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/than-y-hoang-hau/" title="Thần Y Hoàng Hậu"> <img class="img-responsive" src="{{asset('frontend/img/than-y-hoang-hau-poster-20170923-200x300.jpg')}}" alt="Thần Y Hoàng Hậu"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/than-y-hoang-hau/" title="Thần Y Hoàng Hậu">Thần Y Hoàng Hậu</a> </h2>
-                                          <div class="chap">苏小暖 &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/than-y-hoang-hau/chuong-757/" title="Chương 757">Chương 757</a> &nbsp; </div>
-                                          <div class="time"> tuyetden613 &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/khai-quai-sam-di-gioi/" title="Khai Quải Sấm Dị Giới"> <img class="img-responsive" src="{{asset('frontend/img/khai-quai-sam-di-gioi-poster-20161129-200x300.jpg')}}" alt="Khai Quải Sấm Dị Giới"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/khai-quai-sam-di-gioi/" title="Khai Quải Sấm Dị Giới">Khai Quải Sấm Dị Giới</a> </h2>
-                                          <div class="chap">Vương Bất Thâu &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/khai-quai-sam-di-gioi/chuong-1413/" title="Chương 1413">Chương 1413</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜHuyền ๖ۣۜThiên &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/tam-gioi-than-hoang/" title="Tam Giới Thần Hoàng"> <img class="img-responsive" src="{{asset('frontend/img/tam-gioi-than-hoang-poster-20170307-200x300.jpg')}}" alt="Tam Giới Thần Hoàng"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/tam-gioi-than-hoang/" title="Tam Giới Thần Hoàng">Tam Giới Thần Hoàng</a> </h2>
-                                          <div class="chap">Quốc Sắc Sinh Kiêu &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/tam-gioi-than-hoang/chuong-1240/" title="Chương 1240">Chương 1240</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜJet ๖ۣۜBlack &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/my-thuc-hunter/" title="Mỹ Thực Hunter"> <img class="img-responsive" src="{{asset('frontend/img/timthumb(2).php')}}" alt="Mỹ Thực Hunter"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/my-thuc-hunter/" title="Mỹ Thực Hunter">Mỹ Thực Hunter</a> </h2>
-                                          <div class="chap">Màu xanh tím heo &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/my-thuc-hunter/chuong-60/" title="Chương 60">Chương 60</a> &nbsp; </div>
-                                          <div class="time"> andermax &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/luong-gioi-nguoi-van-chuyen/" title="Lưỡng Giới Người Vận Chuyển"> <img class="img-responsive" src="{{asset('frontend/img/luong-gioi-nguoi-van-chuyen-poster-20171001-200x300.jpg')}}" alt="Lưỡng Giới Người Vận Chuyển"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/luong-gioi-nguoi-van-chuyen/" title="Lưỡng Giới Người Vận Chuyển">Lưỡng Giới Người Vận Chuyển</a> </h2>
-                                          <div class="chap">Thạch Văn &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/luong-gioi-nguoi-van-chuyen/chuong-999/" title="Chương 999">Chương 999</a> &nbsp; </div>
-                                          <div class="time"> ♛√ɨ☣√υ♛ &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/sieu-viet-cuong-bao-thang-cap/" title="Siêu Việt Cuồng Bạo Thăng Cấp"> <img class="img-responsive" src="{{asset('frontend/img/sieu-viet-cuong-bao-thang-cap-poster-20170205-200x300.jpg')}}" alt="Siêu Việt Cuồng Bạo Thăng Cấp"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/sieu-viet-cuong-bao-thang-cap/" title="Siêu Việt Cuồng Bạo Thăng Cấp">Siêu Việt Cuồng Bạo Thăng Cấp</a> </h2>
-                                          <div class="chap">5757 &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/sieu-viet-cuong-bao-thang-cap/chuong-1031/" title="Chương 1031">Chương 1031</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜHuyền ๖ۣۜThiên &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/vong-du-chi-ta-la-vo-hoc-gia/" title="Võng Du Chi Ta Là Võ Học Gia"> <img class="img-responsive" src="{{asset('frontend/img/vong-du-chi-ta-la-vo-hoc-gia-poster-20160413-200x300.jpg')}}" alt="Võng Du Chi Ta Là Võ Học Gia"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/vong-du-chi-ta-la-vo-hoc-gia/" title="Võng Du Chi Ta Là Võ Học Gia">Võng Du Chi Ta Là Võ Học Gia</a> </h2>
-                                          <div class="chap">Thiết Ngưu Tiên &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/vong-du-chi-ta-la-vo-hoc-gia/chuong-1196/" title="Chương 1196">Chương 1196</a> &nbsp; </div>
-                                          <div class="time"> darkroker &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/tuyet-the-than-y/" title="Tuyệt Thế Thần Y"> <img class="img-responsive" src="{{asset('frontend/img/tuyet-the-than-y-poster-20170930-200x300.jpg')}}" alt="Tuyệt Thế Thần Y"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/tuyet-the-than-y/" title="Tuyệt Thế Thần Y">Tuyệt Thế Thần Y</a> </h2>
-                                          <div class="chap">夜北 &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/tuyet-the-than-y/chuong-952/" title="Chương 952">Chương 952</a> &nbsp; </div>
-                                          <div class="time"> tuyetden613 &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/phu-tran-khung-thuong/" title="Phù Trấn Khung Thương"> <img class="img-responsive" src="{{asset('frontend/img/phu-tran-khung-thuong-poster-20161129-200x300.jpg')}}" alt="Phù Trấn Khung Thương"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/phu-tran-khung-thuong/" title="Phù Trấn Khung Thương">Phù Trấn Khung Thương</a> </h2>
-                                          <div class="chap">Cổ Kiếm Phong &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/phu-tran-khung-thuong/chuong-980/" title="Chương 980">Chương 980</a> &nbsp; </div>
-                                          <div class="time"> ๖ۣۜJet ๖ۣۜBlack &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> <img class="img-responsive" src="{{asset('frontend/img/toi-cuong-nam-tong-chu-tai-nu-mon-phai-poster-1511596837-200x300.jpg')}}" alt="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái" style="text-shadow: 0 0 6px #FF0000, 0 0 5px #FF0000, 0 0 5px #FF0000; color: white">Tối Cường Nam Tông Chủ Tại Nữ Môn Phái</a> </h2>
-                                          <div class="chap">Kỵ Mã Quân &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/chuong-441/" title="Chương 441">Chương 441</a> &nbsp; </div>
-                                          <div class="time"> ❄๖ۣۜSmileÿεїз &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/tuyet-the-linh-than/" title="Tuyệt Thế Linh Thần"> <img class="img-responsive" src="{{asset('frontend/img/tuyet-the-linh-than-poster-20171004-200x300.jpg')}}" alt="Tuyệt Thế Linh Thần"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/tuyet-the-linh-than/" title="Tuyệt Thế Linh Thần">Tuyệt Thế Linh Thần</a> </h2>
-                                          <div class="chap">Bách Lý Long Hà &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/tuyet-the-linh-than/chuong-1689/" title="Chương 1689">Chương 1689</a> &nbsp; </div>
-                                          <div class="time"> ♫ ๖ۣۜLucario ♫ &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/roma-total-war-di-gioi-de-quoc/" title="Roma Total War Dị Giới Đế Quốc"> <img class="img-responsive" src="{{asset('frontend/img/roma-total-war-di-gioi-de-quoc-poster-20170727-200x300.jpg')}}" alt="Roma Total War Dị Giới Đế Quốc"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/roma-total-war-di-gioi-de-quoc/" title="Roma Total War Dị Giới Đế Quốc">Roma Total War Dị Giới Đế Quốc</a> </h2>
-                                          <div class="chap">Truy Phong Thiên Niên &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/roma-total-war-di-gioi-de-quoc/chuong-795/" title="Chương 795">Chương 795</a> &nbsp; </div>
-                                          <div class="time"> zzZQ.HuyZzz &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/bam-than-manh-nhat-songoku/" title="Bám Thân Mạnh Nhất Songoku"> <img class="img-responsive" src="{{asset('frontend/img/bam-than-manh-nhat-songoku-poster-1512293669-200x300.jpg')}}" alt="Bám Thân Mạnh Nhất Songoku"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/bam-than-manh-nhat-songoku/" title="Bám Thân Mạnh Nhất Songoku">Bám Thân Mạnh Nhất Songoku</a> </h2>
-                                          <div class="chap">Ngự Kiếm Môn &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/bam-than-manh-nhat-songoku/chuong-100/" title="Chương 100">Chương 100</a> &nbsp; </div>
-                                          <div class="time"> HacTamX &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-table">
-                                    <div class="content">
-                                       <a class="thumb" href="http://truyencv.com/thap-tu-huyet-tu/" title="Thập Tự Huyết Tử"> <img class="img-responsive" src="{{asset('frontend/img/timthumb(3).php')}}" alt="Thập Tự Huyết Tử"> </a>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/thap-tu-huyet-tu/" title="Thập Tự Huyết Tử">Thập Tự Huyết Tử</a> </h2>
-                                          <div class="chap">Hiên phong Vân Hiền &nbsp;</div>
-                                          <div class="author"> <a href="http://truyencv.com/thap-tu-huyet-tu/chuong-1/" title="Chương 1">Chương 1</a> &nbsp; </div>
-                                          <div class="time"> starlegenkill2016@ &nbsp; </div>
-                                       </div>
-                                    </div>
-                                 </li>
+                                  @foreach($books_up as $b)
+                                  <li class="list-group-item list-group-item-table">
+                                     <div class="content">
+                                        <a class="thumb" href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}"> <img class="img-responsive" src="{{asset('uploads/images/'.$b->image)}}" alt="{{$b->name}}"> </a>
+                                        <div class="info">
+                                           <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                           <div class="chap">{{$b->view}} view &nbsp;</div>
+                                           <div class="author"> {{$b->author}}  &nbsp; </div>
+                                           <div class="time"> {{$b->date}} &nbsp; </div>
+                                        </div>
+                                     </div>
+                                  </li>
+                                  @endforeach
                               </ul>
-                              <a href="http://truyencv.com/danh-sach/moi-cap-nhat/" class="pull-right cnt-view">Xem tiếp</a>
                            </div>
                         </div>
                      </div>
@@ -619,7 +308,7 @@
                      <div class="col-xs-12 col-sm=12 col-md-4">
                         <div class="block block-inverse block-ranking">
                            <div class="block-header">
-                              <h2 class="title"> <i class="truyencv-icon icon-fire"></i> convert hot tuần </h2>
+                              <h2 class="title"> <i class="truyencv-icon icon-fire"></i> sách hot tuần </h2>
                            </div>
                            <div class="block-content">
                               <ul class="list-group">
@@ -627,99 +316,35 @@
                                     <div class="content">
                                        <div class="index index-1"> 1 </div>
                                        <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/than-mach-chi-ton/" title="Thần Mạch Chí Tôn">Thần Mạch Chí Tôn</a> </h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">4k</span> người truy cập </div>
+                                          <h2 class="title"> <a href="{{route('frontend.show',['id'=>$books_hot[0]->id])}}" title="{{$books_hot[0]->name}}">{{$books_hot[0]->name}}</a> </h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_hot[0]->view}}</span> người truy cập </div>
                                           <div class="extra-info">
-                                             <p>Thể loại: <a href="http://truyencv.com/huyen-ao/">Huyền Ảo</a></p>
-                                             <p>Tác giả: Hoa Lạc Duy Yểu</p>
+                                             <p>Thể loại: {{$books_hot[0]->species}}</p>
+                                             <p>Tác giả: {{$books_hot[0]->author}}</p>
                                           </div>
                                        </div>
                                        <div class="thumb">
-                                          <div class="book-cover"> <a class="book-cover-link" href="http://truyencv.com/than-mach-chi-ton/" title="Thần Mạch Chí Tôn"> <img src="{{asset('frontend/img/than-mach-chi-ton-poster-1512294514-200x300.jpg')}}" alt="Thần Mạch Chí Tôn"> </a> <span class="book-cover-shadow"></span> </div>
+                                          <div class="book-cover"> <a class="book-cover-link" href="{{route('frontend.show',['id'=>$books_hot[0]->id])}}" title="{{$books_hot[0]->name}}"> <img src="{{asset('uploads/images').'/'.$books_hot[0]->image}}" alt="{{$books_hot[0]->name}}"> </a> <span class="book-cover-shadow"></span> </div>
                                        </div>
                                     </div>
                                  </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-2"> 2 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/vu-than-chua-te/" title="Vũ Thần Chúa Tể">Vũ Thần Chúa Tể</a> </h2>
-                                          <div class="view text-secondary"> 3.2k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-3"> 3 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/chi-ton-vo-than-he-thong/" title="Chí Tôn Võ Thần Hệ Thống">Chí Tôn Võ Thần Hệ Thống</a> </h2>
-                                          <div class="view text-secondary"> 3k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-4"> 4 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/cuu-vot-nhi-thu-nguyen-ma-vuong/" title="Cứu Vớt Nhị Thứ Nguyên Ma Vương">Cứu Vớt Nhị Thứ Nguyên Ma Vương</a> </h2>
-                                          <div class="view text-secondary"> 2.8k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-5"> 5 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/dau-pha-chi-duoc-phong/" title="Đấu Phá Chi Dược Phong">Đấu Phá Chi Dược Phong</a> </h2>
-                                          <div class="view text-secondary"> 2.7k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-6"> 6 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/sinh-hoat-vip-he-thong/" title="Sinh Hoạt Vip Hệ Thống">Sinh Hoạt Vip Hệ Thống</a>  </h2>
-                                          <div class="view text-secondary"> 2.5k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-7"> 7 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái">Tối Cường Nam Tông Chủ Tại Nữ Môn Phái</a> </h2>
-                                          <div class="view text-secondary"> 2.5k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-8"> 8 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/nhat-niem-vinh-hang/" title="Nhất Niệm Vĩnh Hằng">Nhất Niệm Vĩnh Hằng</a> </h2>
-                                          <div class="view text-secondary"> 2.4k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-9"> 9 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/de-ba/" title="Đế Bá">Đế Bá</a> </h2>
-                                          <div class="view text-secondary"> 2.1k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-10"> 10 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/yeu-than-ky/" title="Yêu Thần Ký">Yêu Thần Ký</a> </h2>
-                                          <div class="view text-secondary"> 2k </div>
-                                       </div>
-                                    </div>
-                                 </li>
+                                 @php $count=1 @endphp
+                                 @foreach($books_hot as $b)
+                                  @if($count>1)
+                                  <li class="list-group-item list-group-item-primary">
+                                     <div class="content">
+                                        <div class="index index-2"> {{$count}} </div>
+                                        <div class="info">
+                                           <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                           <div class="view text-secondary"> {{$b->view}} </div>
+                                        </div>
+                                     </div>
+                                  </li>
+                                  @endif
+                                  @php $count++ @endphp
+                                 @endforeach
+
+
                               </ul>
                            </div>
                         </div>
@@ -966,9 +591,9 @@
                         </div>
                         <div class="footer-block-content">
                            <ul class="footer-block-list">
-                              <li> <a href="mailto:hapris@gmail.com"> <span class="block-list-icon"> <i class="truyencv-icon icon-email"></i> </span> Email: chungnv@adsviet.com</a> </li>
-                              <li> <a href="tel:9999"> <span class="block-list-icon"> <i class="truyencv-icon icon-phone"></i> </span>Phone: </a> </li>
-                              <li> <a href="skype:haparis"> <span class="block-list-icon"> <i class="truyencv-icon icon-skype"></i> </span>Skype: nguyenchung88</a> </li>
+                              <li> <a href=""> <span class="block-list-icon"> <i class="truyencv-icon icon-email"></i> </span> Email: admin@tabook.com</a> </li>
+                              <li> <a href=""> <span class="block-list-icon"> <i class="truyencv-icon icon-phone"></i> </span>Phone: </a> </li>
+                              <li> <a href=""> <span class="block-list-icon"> <i class="truyencv-icon icon-skype"></i> </span>Skype: nguyenchung88</a> </li>
                            </ul>
                         </div>
                      </div>
@@ -1051,19 +676,14 @@
                      <div class="modal-body">
                         <form id="frmLogin2" onsubmit="login();return false;" method="post">
                            <div class="form-group">
-                              <div class="clearfix"> <label>Tài khoản</label> <a href="http://truyencv.com/#modal-resend" data-toggle="modal" class="pull-right" data-dismiss="modal">Gửi lại mail kích hoạt</a> </div>
+                              <div class="clearfix"> <label>Tài khoản</label>
                               <input type="text" class="form-control" id="txtUserName" name="txtUserName" maxlength="50" placeholder="Tài khoản">
                            </div>
                            <div class="form-group">
-                              <div class="clearfix"> <label>Mật khẩu</label> <a href="http://truyencv.com/#modal-forgot" data-toggle="modal" class="pull-right" data-dismiss="modal">Quên mật khẩu</a> </div>
+                              <div class="clearfix"> <label>Mật khẩu</label>
                               <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Mật khẩu">
                            </div>
-                           <div class="checkbox"> <label> <input type="checkbox" id="chkRemember" name="chkRemember"> Ghi nhớ đăng nhập </label> </div>
                            <div class="form-group text-center"> <button type="submit" class="btn btn-truyencv btn-block" value="Đăng nhập" name="btnLogin" id="btnLogin">Đăng nhập</button> </div>
-                           <div class="form-group text-center">
-                              <p>hoặc đăng nhập bằng Facebook</p>
-                              <a href="http://truyencv.com/fb/" class="btn btn-facebook btn-block" id="facebook1"> <i class="truyencv-icon icon-facebook"></i> </a>
-                           </div>
                         </form>
                      </div>
                      <div class="modal-footer text-center">
@@ -1073,6 +693,8 @@
                </div>
             </div>
          </div>
+      </div>
+      </div>
       </div>
       <div class="modal fade modal-auth" tabindex="-1" role="dialog" id="modal-register">
          <div class="vertical-alignment-helper">
@@ -1089,12 +711,9 @@
                            <div class="form-group"> <label>Mật khẩu</label> <input type="password" class="form-control" id="password" name="password" maxlength="50" placeholder="Mật khẩu"> </div>
                            <div class="form-group"> <label>Nhập lại mật khẩu</label> <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Nhập lại mật khẩu"> </div>
                            <div class="form-group"> <label>Email</label> <input type="email" class="form-control" id="email" name="email" placeholder="Email"> </div>
-                           <div class="form-group"> <label>Mã bảo vệ <img alt="Nhấn vào đây nếu bạn không thấy mã bảo vệ" id="captchaimg" src="{{asset('frontend/img/sid=eddd5cec7d3ba5fb0a3a1c847780b43c" width="60"> <a href="javascript:void(0)" onclick="captchaimg.src=&#39;http://truyencv.com/index.php')}}/captcha/sid=&#39; + Math.random();"><img src="{{asset('frontend/img/captcha.png')}}" alt="captcha"></a></label> <input type="text" class="form-control" id="sec_num" name="sec_num" placeholder=""> </div>
+
                            <div class="form-group text-center"> <button type="submit" class="btn btn-truyencv btn-block" id="signupsubmit" name="signup" value="Đăng ký">Đăng ký</button> </div>
-                           <div class="form-group text-center">
-                              <p>hoặc đăng ký bằng Facebook</p>
-                              <a href="http://truyencv.com/fb/" class="btn btn-facebook btn-block"> <i class="truyencv-icon icon-facebook"></i> </a>
-                           </div>
+
                         </form>
                      </div>
                      <div class="modal-footer text-center">
@@ -1131,32 +750,7 @@
             </div>
          </div>
       </div>
-      <div class="modal fade modal-auth" tabindex="-1" role="dialog" id="modal-resend">
-         <div class="vertical-alignment-helper">
-            <div class="vertical-align-center">
-               <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <i class="truyencv-icon icon-close"></i> </button>
-                        <h4 class="modal-title">Gửi lại mail kích hoạt</h4>
-                     </div>
-                     <div class="modal-body">
-                        <div id="forgot_content">
-                           <form name="frmResend" id="frmResend" onsubmit="resendMail();return false">
-                              <div class="form-group"> <label>Tài khoản</label> <input type="text" class="form-control" name="txtResendName" id="txtResendName" placeholder="Tài khoản"> </div>
-                              <div class="form-group text-center"> <button type="submit" class="btn btn-truyencv btn-block" name="btnResendMail" id="btnResendMail" value="Send Request">Gửi lại</button> <span id="resend_loading" style="display:none"><img src="{{asset('frontend/img/loading.gif')}}" alt="loading"></span> </div>
-                           </form>
-                        </div>
-                        <div id="forgot_done" style="display:none"> Chúng tôi đã gửi mật khẩu mới về email của bạn </div>
-                     </div>
-                     <div class="modal-footer text-center">
-                        <p>Bạn chưa có tài khoản? <a href="http://truyencv.com/#modal-register" data-toggle="modal" data-dismiss="modal">Đăng ký ngay</a> </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+
       <script src="{{asset('frontend/js/bootstrap.min.js.tải xuống')}}"></script> <script src="{{asset('frontend/js/swiper.jquery.min.js.tải xuống')}}"></script>  <script src="{{asset('frontend/js/ie10-viewport-bug-workaround.js.tải xuống')}}"></script> <script src="{{asset('frontend/js/main.js.tải xuống')}}"></script>
 
       <script type="text/javascript" src="{{asset('frontend/js/delivery')}}"></script><img src="{{asset('frontend/js/request')}}" height="0" width="0">

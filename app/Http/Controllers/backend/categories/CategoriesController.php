@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend\categories;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use App\Categories;
 use App\Customers;
 
@@ -39,10 +40,11 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
       $valid=[
-        'name'=>'required'
+        'name'=>'required|unique:categories,name',
       ];
       $messages = [
-        'required' => 'Yêu cầu nhập'
+        'required' => 'Yêu cầu nhập',
+        'unique'=> 'Danh mục này đã tồn tại'
       ];
       //validte request by validate option
       $this->validate($request, $valid,$messages);
@@ -87,15 +89,19 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $valid=[
-        'name'=>'required'
+      $valid1=[
+        'name'=> Rule::unique('categories')->ignore($id),
+      ];
+      $valid2=[
+        'name'=>'required',
       ];
       $messages = [
-        'required' => 'Yêu cầu nhập'
+        'required' => 'Yêu cầu nhập',
+        'unique'=> 'Danh mục này đã tồn tại'
       ];
       //validte request by validate option
-      $this->validate($request, $valid,$messages);
-
+      $this->validate($request, $valid1,$messages);
+      $this->validate($request, $valid2,$messages);
       $category = Categories::find($id);
 
       $category->name = $request->name;

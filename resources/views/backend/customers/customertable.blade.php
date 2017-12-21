@@ -29,7 +29,6 @@
                 <th>ID</th>
                 <th>@sortablelink('name', 'Tên')</th>
                 <th>@sortablelink('email', 'Email')</th>
-                <th>@sortablelink('dob', 'Ngày sinh')</th>
                 <th>Tùy chọn</th>
               </thead>
               <tbody>
@@ -39,7 +38,6 @@
                   <td>{{$customer->id}}</td>
                   <td>{{$customer->name}}</td>
                   <td>{{$customer->email}}</td>
-                  <td>{{date('d-m-Y', strtotime(str_replace('-', '/', $customer->dob)))}}</td>
                   <td class="td-actions text-right">
                     <a href="{{route('customers.edit',['customer'=>$customer->id])}}" type="button" rel="tooltip" title="Sửa"
                       class="btn btn-success btn-simple btn-xs">

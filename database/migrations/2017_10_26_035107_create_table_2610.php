@@ -19,7 +19,6 @@ class CreateTable2610 extends Migration
           $table->string('email')->unique();
           $table->string('password');
           $table->string('password2');
-          $table->datetime('dob');
           $table->rememberToken();
           $table->timestamps();
       });
@@ -44,6 +43,10 @@ class CreateTable2610 extends Migration
           $table->integer('view');
           $table->integer('like');
           $table->string('species');
+          $table->string('recommend');
+          $table->string('image');
+          $table->string('adv')->nullable();
+          $table->string('content')->nullable();
           $table->integer('customer_id')->unsigned()->nullable();
           $table->foreign('customer_id')->references('id')->on('customers');
           $table->integer('categories_id')->unsigned();

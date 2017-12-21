@@ -36,6 +36,12 @@ Tip 2: you can also add an image using data-image tag
                   <p>Thể loại</p>
               </a>
           </li>
+          <li class="{{Request::is('admin/adv*')?'active':''}}">
+              <a href="{{route('adv.index')}}">
+                  <i class="material-icons">trending_up</i>
+                  <p>Đề cử - Quảng cáo</p>
+              </a>
+          </li>
           <li class="active-pro">
               <a href="">
                   <p><script>

@@ -1,6 +1,5 @@
 @extends('backend.layout.master')
 @extends('backend.layout.sidebar')
-@extends('backend.books.bookedit_js')
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -14,6 +13,29 @@
                     <div class="card-content">
                         <form id="formedit" class="form" action="{{route('books.up',['book'=>$edit->id])}}" method="POST" enctype="multipart/form-data">
                            {{ csrf_field() }}
+                           <div class="row">
+                             <div class="col-md-2 form-label">
+                               <label for="" class="{{ $errors->has('image') ? 'has-error' : '' }}">Ảnh đại diện<span class="required"> * </span></label>
+                             </div>
+                             <div class="col-md-6">
+                               <div class="form-group label-floating">
+                                 <label for="new_img">
+                                   <img id="display_image_book"
+                                   @if (Session::has('image_book'))
+                                   src="{{ URL::to('/uploads/images') . '/' . Session::get('image_book') }}"
+                                   @else
+                                   src="{{ URL::to('/uploads/images').'/' .$edit->image }}" height="300" width="200"
+                                   @endif>
+                                   <input id="new_img" type="file" name="image" onchange="readURL_updateNewImg(this)"/>
+                                 </label>
+                               </div>
+                             </div>
+                             <div class="col-md-2">
+                               @if ($errors->has('image'))
+                                 <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('image')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
+                               @endif
+                             </div>
+                           </div>
                            <div class="row">
                              <div class="col-md-2 form-label">
                                <label for="" class="{{ $errors->has('categories') ? 'has-error' : '' }}">Danh mục<span class="required"> * </span></label>
@@ -32,23 +54,7 @@
                                  </select>
                                </div>
                              </div>
-                             <script type="text/javascript">
-                             function CategoriesChange(value){
-                               if({{$cate}}==value){
-                                 $("#authorinput").addClass('hide');
-                                 $("#authorselect").removeClass('hide');
-                                 $("#inputfile").addClass('hide');
-                                 $("#formedit").attr('action','{{route('books.2up',['book'=>$edit->id])}}');
-                               }
-                               else{
-                                 $("#authorinput").removeClass('hide');
-                                 $("#authorselect").addClass('hide');
-                                 $("#inputfile").removeClass('hide');
-                                 $("#formedit").attr('action','{{route('books.up',['book'=>$edit->id])}}');
-                               }
-                             };
 
-                             </script>
                              <div class="col-md-2">
                                @if ($errors->has('categories'))
                                  <button type="button" class="btn-error" data-toggle="tooltip" data-placement="right"  title="{{$errors->first('categories')}}"><i class="fa fa-exclamation-circle fa-lg"></i></button>
@@ -74,7 +80,7 @@
                             <div class="col-md-2 form-label">
                               <label for="" class="{{ $errors->has('author') ? 'has-error' : '' }}">Tác giả<span class="required"> * </span></label>
                             </div>
-                            <div class="col-md-6" id="authorselect">
+                            <!-- <div class="col-md-6" id="authorselect">
                               <div class="form-group label-floating">
                                 <select  class="js-example-basic-single" name="author2" style="width: 100%">
                                   <option disabled selected value>Chọn người dùng</option>
@@ -87,7 +93,7 @@
                                   @endforeach
                                 </select>
                               </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-6" id="authorinput">
                               <div class="form-group label-floating">
                                 <input  type="text" class="form-control" name="author" value="{{old('author')?old('author'):$edit->author}}">

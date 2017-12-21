@@ -24,15 +24,15 @@
   float: left;
 }
 .jRating-star.full {
-  background-image: url("frontend/img/star-full.svg");
+  background-image: url("{{URL::to('/frontend/img').'/'.star-full.svg}}");
 }
 
 .jRating-star.half {
-  background-image: url("frontend/img/star-half.svg");
+  background-image: url("{{URL::to('/frontend/img').'/'.star-half.svg}}");
 }
 
 .jRating-star.empty {
-  background-image: url("frontend/img/star-empty.svg");
+  background-image: url("{{URL::to('/frontend/img').'/'.frontend/img/star-empty.svg}}");
 }
 
 .jRating-star:first-child {
@@ -264,7 +264,7 @@
 }
 
 body {
-  background-image: url("frontend/img/footer-bg.jpg");
+  background-image: url("{{URL::to('/frontend/img').'/'.footer-bg.jpg}}");
   background-repeat: no-repeat;
   background-position: bottom right;
 }
@@ -278,7 +278,7 @@ body {
 }
 @media only screen and (min-width: 769px) {
 .page-wrapper {
-  background-image: url("{{asset('frontend/img/body-bg-tl.jpg')}}");
+  background-image: url("http://localhost:81/LaravelSource/TAT_git/public/frontend/img/body-bg-tl3.jpg");
   background-repeat: no-repeat;
   background-position: top center;
   -moz-background-size: 100% auto;
@@ -1668,355 +1668,355 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .truyencv-icon.icon-peanut {
-  background-image: url("frontend/img/icon-peanut.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-peanut.png}}");
   width: 19px;
   height: 19px;
 }
 
 .truyencv-icon.icon-close {
-  background-image: url("frontend/img/icon-close.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-close.png}}");
   width: 14px;
   height: 14px;
 }
 
 .truyencv-icon.icon-close-grey {
-  background-image: url("frontend/img/icon-close-grey.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-close-grey.png}}");
   width: 14px;
   height: 14px;
 }
 
 .truyencv-icon.icon-facebook {
-  background-image: url("frontend/img/icon-facebook.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-facebook.png}}");
   width: 10px;
   height: 22px;
 }
 
 .truyencv-icon.icon-like {
-  background-image: url("frontend/img/icon-like.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-like.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-fire {
-  background-image: url("frontend/img/icon-fire.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-fire.png}}");
   width: 25px;
   height: 28px;
 }
 
 .truyencv-icon.icon-star {
-  background-image: url("frontend/img/icon-star.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-star.png}}");
   width: 23px;
   height: 22px;
 }
 
 .truyencv-icon.icon-user {
-  background-image: url("frontend/img/icon-user.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-user.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-search {
-  background-image: url("frontend/img/icon-search.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-search-primary {
-  background-image: url("../frontend/img/icon-search-primary.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search-primary.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-next {
-  background-image: url("frontend/img/icon-next.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-next.png}}");
   width: 10px;
   height: 17px;
 }
 
 .truyencv-icon.icon-prev {
-  background-image: url("frontend/img/icon-prev.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-prev.png}}");
   width: 10px;
   height: 17px;
 }
 
 .truyencv-icon.icon-white-next {
-  background-image: url("frontend/img/icon-white-next.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-white-next.png}}");
   width: 10px;
   height: 17px;
 }
 
 .truyencv-icon.icon-white-prev {
-  background-image: url("frontend/img/icon-white-prev.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-white-prev.png}}");
   width: 10px;
   height: 17px;
 }
 
 .truyencv-icon.icon-email {
-  background-image: url("frontend/img/icon-email.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-email.png}}");
   width: 24px;
   height: 16px;
 }
 
 .truyencv-icon.icon-phone {
-  background-image: url("frontend/img/icon-phone.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-phone.png}}");
   width: 14px;
   height: 24px;
 }
 
 .truyencv-icon.icon-skype {
-  background-image: url("frontend/img/icon-skype.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-skype.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-upload {
-  background-image: url("frontend/img/icon-upload.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-upload.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-warning {
-  background-image: url("frontend/img/icon-warning.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-warning.png}}");
   width: 22px;
   height: 24px;
 }
 
 .truyencv-icon.icon-cat-do-thi {
-  background-image: url("frontend/img/icon-cat-do-thi.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-do-thi.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-tien-hiep {
-  background-image: url("frontend/img/icon-cat-tien-hiep.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-tien-hiep.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-khoa-huyen {
-  background-image: url("frontend/img/icon-cat-khoa-huyen.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-khoa-huyen.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-kiem-hiep {
-  background-image: url("frontend/img/icon-cat-kiem-hiep.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-kiem-hiep.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-huyen-ao {
-  background-image: url("frontend/img/icon-cat-huyen-ao.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-huyen-ao.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-ngon-tinh {
-  background-image: url("frontend/img/icon-cat-ngon-tinh.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-ngon-tinh.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-quan-su {
-  background-image: url("frontend/img/icon-cat-quan-su.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-quan-su.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-nu-hiep {
-  background-image: url("frontend/img/icon-cat-do-thi.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-do-thi.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-di-nang {
-  background-image: url("frontend/img/icon-cat-khoa-huyen.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-khoa-huyen.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-vong-du {
-  background-image: url("frontend/img/icon-cat-vong-du.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-vong-du.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-di-gioi {
-  background-image: url("frontend/img/icon-cat-di-gioi.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-di-gioi.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-lich-su {
-  background-image: url("frontend/img/icon-cat-lich-su.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-lich-su.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-xuyen-khong {
-  background-image: url("frontend/img/icon-cat-xuyen-khong.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-xuyen-khong.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-trung-sinh {
-  background-image: url("frontend/img/icon-cat-do-thi.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-do-thi.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-canh-ky {
-  background-image: url("frontend/img/icon-cat-khoa-huyen.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-khoa-huyen.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-nu-hiep {
-  background-image: url("frontend/img/icon-cat-nu-hiep.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-nu-hiep.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-dong-nhan {
-  background-image: url("frontend/img/icon-cat-dong-nhan.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-dong-nhan.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-linh-di {
-  background-image: url("frontend/img/icon-cat-linh-di.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-linh-di.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-cat-mat-the {
-  background-image: url("frontend/img/icon-cat-mat-the.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-cat-mat-the.png}}");
   width: 76px;
   height: 64px;
 }
 
 .truyencv-icon.icon-config {
-  background-image: url("frontend/img/icon-config.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-config.png}}");
   width: 21px;
   height: 22px;
 }
 
 .truyencv-icon.icon-list {
-  background-image: url("frontend/img/icon-list.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-list.png}}");
   width: 18px;
   height: 24px;
 }
 
 .truyencv-icon.icon-award {
-  background-image: url("frontend/img/icon-award.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-award.png}}");
   width: 24px;
   height: 30px;
 }
 
 .truyencv-icon.icon-book {
-  background-image: url("frontend/img/icon-book.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-book.png}}");
   width: 24px;
   height: 24px;
 }
 
 .truyencv-icon.icon-gold {
-  background-image: url("frontend/img/icon-gold.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-gold.png}}");
   width: 26px;
   height: 24px;
 }
 
 .truyencv-icon.icon-lock {
-  background-image: url("frontend/img/icon-lock.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-lock.png}}");
   width: 12px;
   height: 16px;
 }
 
 .truyencv-icon.icon-color {
-  background-image: url("frontend/img/icon-color.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-color.png}}");
   width: 24px;
   height: 22px;
 }
 
 .truyencv-icon.icon-font {
-  background-image: url("frontend/img/icon-font.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-font.png}}");
   width: 20px;
   height: 24px;
 }
 
 .truyencv-icon.icon-font-size {
-  background-image: url("frontend/img/icon-font-size.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-font-size.png}}");
   width: 24px;
   height: 22px;
 }
 
 .truyencv-icon.icon-line-height {
-  background-image: url("frontend/img/icon-line-height.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-line-height.png}}");
   width: 24px;
   height: 16px;
 }
 
 .truyencv-icon.icon-size {
-  background-image: url("frontend/img/icon-size.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-size.png}}");
   width: 24px;
   height: 27px;
 }
 
 .truyencv-icon.icon-eye-grey {
-  background-image: url("frontend/img/icon-eye-grey.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-eye-grey.png}}");
   width: 21px;
   height: 14px;
 }
 
 .truyencv-icon.icon-time-grey {
-  background-image: url("frontend/img/icon-time-grey.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-time-grey.png}}");
   width: 18px;
   height: 18px;
 }
 
 .truyencv-icon.icon-list-grey {
-  background-image: url("frontend/img/icon-list-grey.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-list-grey.png}}");
   width: 13px;
   height: 18px;
 }
 
 .truyencv-icon.icon-eye-white {
-  background-image: url("frontend/img/icon-eye-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-eye-white.png}}");
   width: 21px;
   height: 14px;
 }
 
 .truyencv-icon.icon-time-white {
-  background-image: url("frontend/img/icon-time-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-time-white.png}}");
   width: 18px;
   height: 18px;
 }
 
 .truyencv-icon.icon-list-white {
-  background-image: url("frontend/img/icon-list-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-list-white.png}}");
   width: 13px;
   height: 18px;
 }
 
 .truyencv-icon.icon-size {
-  background-image: url("frontend/img/icon-size.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-size.png}}");
   width: 24px;
   height: 27px;
 }
 
 .truyencv-icon.icon-next-bold {
-  background-image: url("frontend/img/icon-next-bold.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-next-bold.png}}");
   width: 22px;
   height: 18px;
 }
 
 .truyencv-icon.icon-prev-bold {
-  background-image: url("frontend/img/icon-prev-bold.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-prev-bold.png}}");
   width: 22px;
   height: 18px;
 }
 
 .truyencv-icon.icon-bookmark {
-  background-image: url("frontend/img/icon-bookmark.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-bookmark.png}}");
   width: 40px;
   height: 64px;
 }
@@ -2042,7 +2042,7 @@ button.list-group-item-truyencv.active:focus {
 
 .navbar-inverse:after {
   position: absolute;
-  background: url("images/nav-bg.png") repeat-x center;
+  background: url("images/nav-bg.png}}") repeat-x center;
   -moz-background-size: auto 100%;
     -o-background-size: auto 100%;
        background-size: auto 100%;
@@ -2191,7 +2191,7 @@ button.list-group-item-truyencv.active:focus {
   position: absolute;
   padding: 0;
   margin: 0;
-  background-color: #72a17e;
+  background-color: #184785;
   z-index: 10;
   top: 100%;
   padding: 30px;
@@ -2233,7 +2233,7 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .navbar-inverse .navbar-category .navbar-category-list > li > a:hover {
-  background-color: #7fb28b;
+  background-color: #143d74;
 }
 
 @media only screen and (min-width: 992px) {
@@ -2257,7 +2257,7 @@ button.list-group-item-truyencv.active:focus {
 
 @media only screen and (min-width: 768px) {
   .navbar-inverse .navbar-category .navbar-category-btn {
-    background-color: #72a17e;
+    background-color: #184785;
     height: 32px;
     padding: 6px 15px 6px 45px;
   }
@@ -2806,7 +2806,7 @@ button.list-group-item-truyencv.active:focus {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: #184785;
-  background-image: url("frontend/img/section-bg.jpg");
+  background-image: url("{{URL::to('/frontend/img').'/'.section-bg.jpg}}");
   background-repeat: no-repeat;
   background-position: center;
   -moz-background-size: cover;
@@ -2829,7 +2829,7 @@ button.list-group-item-truyencv.active:focus {
   }
   .section-ranking:after {
     position: absolute;
-    background: url("images/nav-bg.png") repeat-x center;
+    background: url("images/nav-bg.png}}") repeat-x center;
     -moz-background-size: auto 100%;
       -o-background-size: auto 100%;
          background-size: auto 100%;
@@ -2842,7 +2842,7 @@ button.list-group-item-truyencv.active:focus {
   }
   .section-ranking:before {
     position: absolute;
-    background: url("images/nav-bg-2.png") repeat-x center;
+    background: url("images/nav-bg-2.png}}") repeat-x center;
     -moz-background-size: auto 100%;
       -o-background-size: auto 100%;
          background-size: auto 100%;
@@ -3260,7 +3260,7 @@ button.list-group-item-truyencv.active:focus {
 
 .modal.modal-auth .modal-dialog .modal-content .modal-header:after {
   position: absolute;
-  background: url("images/nav-bg.png") repeat-x center;
+  background: url("images/nav-bg.png}}") repeat-x center;
   -moz-background-size: auto 100%;
     -o-background-size: auto 100%;
        background-size: auto 100%;
@@ -3419,7 +3419,7 @@ button.list-group-item-truyencv.active:focus {
   }
   .truyencv-search-box:after {
     position: absolute;
-    background: url("images/nav-bg.png") repeat-x center;
+    background: url("images/nav-bg.png}}") repeat-x center;
     -moz-background-size: auto 100%;
       -o-background-size: auto 100%;
          background-size: auto 100%;
@@ -3500,7 +3500,7 @@ button.list-group-item-truyencv.active:focus {
 
 .truyencv-breadcrumb .breadcrumb > li + li:before {
   content: ' ';
-  background: url("../images/icon-next.png") no-repeat center center;
+  background: url("../images/icon-next.png}}") no-repeat center center;
   -moz-background-size: auto 100%;
     -o-background-size: auto 100%;
        background-size: auto 100%;
@@ -4679,11 +4679,11 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .page-read .navbar-inverse .icon-user {
-  background-image: url("frontend/img/icon-user-inverse.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-user-inverse.png}}");
 }
 
 .page-read .navbar-inverse .navbar-header .icon-search {
-  background-image: url("frontend/img/icon-search-inverse.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search-inverse.png}}");
 }
 
 .page-read .navbar-inverse .navbar-header .navbar-category {
@@ -4697,11 +4697,11 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .page-read .navbar-inverse .search-block .icon-search {
-  background-image: url("frontend/img/icon-search-inverse.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search-inverse.png}}");
 }
 
 .page-read .navbar-inverse .search-block .icon-search-primary {
-  background-image: url("frontend/img/icon-search-inverse.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search-inverse.png}}");
 }
 
 .page-read .navbar-inverse:after {
@@ -4719,58 +4719,58 @@ button.list-group-item-truyencv.active:focus {
 
 .page-read.style-1 .navbar-inverse {
   color: #333;
-  background-image: url("frontend/img/bg-content-style-1.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-1.png}}");
 }
 
 .page-read.style-1 .truyencv-read-content {
   background-color: #EAE4D3;
-  /*background-image: url("frontend/img/bg-content-style-1.png");*/
+  /*background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-1.png}}");*/
 }
 
 .page-read.style-2 {
   background-color: #ece3bf;
-  background-image: url("frontend/img/bg-style-2.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-style-2.png}}");
 }
 
 .page-read.style-2 .navbar-inverse {
   color: #333;
-  background-image: url("frontend/img/bg-content-style-2.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-2.png}}");
 }
 
 .page-read.style-2 .truyencv-read-content {
   background-color: #f1e8c2;
   color: #56442e;
-  /*background-image: url("frontend/img/bg-content-style-2.png");*/
+  /*background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-2.png}}");*/
 }
 
 .page-read.style-3 {
   background-color: #ddecdd;
-  background-image: url("frontend/img/bg-style-3.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-style-3.png}}");
 }
 
 .page-read.style-3 .navbar-inverse {
   color: #333;
-  background-image: url("frontend/img/bg-content-style-3.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-3.png}}");
 }
 
 .page-read.style-3 .truyencv-read-content {
   background-color: #e5f1e5;
-  /*background-image: url("frontend/img/bg-content-style-3.png");*/
+  /*background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-3.png}}");*/
 }
 
 .page-read.style-4 {
   background-color: #d7e6eb;
-  background-image: url("frontend/img/bg-style-4.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-style-4.png}}");
 }
 
 .page-read.style-4 .navbar-inverse {
   color: #333;
-  background-image: url("frontend/img/bg-content-style-4.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-4.png}}");
 }
 
 .page-read.style-4 .truyencv-read-content {
   background-color: #dfecf0;
-  background-image: url("frontend/img/bg-content-style-4.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-4.png}}");
 }
 
 .page-read.style-5 {
@@ -4788,17 +4788,17 @@ button.list-group-item-truyencv.active:focus {
 
 .page-read.style-6 {
   background-color: #d5d5d5;
-  background-image: url("frontend/img/bg-style-6.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-style-6.png}}");
 }
 
 .page-read.style-6 .navbar-inverse {
   color: #333;
-  background-image: url("frontend/img/bg-content-style-6.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-6.png}}");
 }
 
 .page-read.style-6 .truyencv-read-content {
   background-color: #dbdbdb;
-  background-image: url("frontend/img/bg-content-style-6.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-6.png}}");
 }
 
 .page-read.style-8 {
@@ -4825,16 +4825,16 @@ button.list-group-item-truyencv.active:focus {
 
 .page-read.style-7 {
   background-color: #2c2d2e;
-  background-image: url("frontend/img/bg-style-7.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-style-7.png}}");
   color: #999;
 }
 
 .page-read.style-7 .user-block .icon-user {
-  background-image: url("frontend/img/icon-user.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-user.png}}");
 }
 
 .page-read.style-7 .navbar-header .icon-search {
-  background-image: url("frontend/img/icon-search.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search.png}}");
 }
 
 .page-read.style-7 .navbar-category .navbar-category-btn {
@@ -4876,31 +4876,31 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .page-read.style-7 .search-block .icon-search {
-  background-image: url("frontend/img/icon-search.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search.png}}");
 }
 
 .page-read.style-7 .search-block .icon-search-primary {
-  background-image: url("frontend/img/icon-search-primary.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-search-primary.png}}");
 }
 
 .page-read.style-7 .navbar-inverse {
   color: #999;
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url("frontend/img/bg-content-style-7.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-7.png}}");
 }
 
 .page-read.style-7 .truyencv-read-content {
   background-color: #131414;
-  background-image: url("frontend/img/bg-content-style-7.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-7.png}}");
 }
 
 .page-read.style-7 .truyencv-read-block .icon-bookmark {
-  background-image: url("frontend/img/icon-bookmark-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-bookmark-white.png}}");
 }
 
 .page-read.style-7 .truyencv-read-navigation > .btn {
   background-color: rgba(0, 0, 0, 0.2) !important;
-  background-image: url("frontend/img/bg-content-style-7.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.bg-content-style-7.png}}");
   background-repeat: repeat;
   border-color: #444 !important;
   -webkit-box-shadow: 0 3px 4px 0 rgba(51, 51, 51, 0.3);
@@ -4909,27 +4909,27 @@ button.list-group-item-truyencv.active:focus {
 }
 
 .page-read.style-7 .truyencv-read-navigation .icon-list {
-  background-image: url("frontend/img/icon-list-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-list-white.png}}");
 }
 
 .page-read.style-7 .truyencv-read-navigation .icon-warning {
-  background-image: url("frontend/img/icon-warning-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-warning-white.png}}");
 }
 
 .page-read.style-7 .truyencv-read-navigation .icon-config {
-  background-image: url("frontend/img/icon-config-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-config-white.png}}");
 }
 
 .page-read.style-7 .read-info-block .icon-eye-grey {
-  background-image: url("frontend/img/icon-eye-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-eye-white.png}}");
 }
 
 .page-read.style-7 .read-info-block .icon-list-grey {
-  background-image: url("frontend/img/icon-list-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-list-white.png}}");
 }
 
 .page-read.style-7 .read-info-block .icon-time-grey {
-  background-image: url("frontend/img/icon-time-white.png");
+  background-image: url("{{URL::to('/frontend/img').'/'.icon-time-white.png}}");
 }
 
 .section-read-info {
@@ -5673,7 +5673,7 @@ button.list-group-item-truyencv.active:focus {
 p.jRatingInfos {
 	position:		absolute;
 	z-index:9999;
-	background: url(../../../../../images/bg_jRatingInfos.png) no-repeat;
+	background: url(../../../../../images/bg_jRatingInfos.png}}) no-repeat;
 	color:			#FFF;
 	display:		none;
 	width:			91px;

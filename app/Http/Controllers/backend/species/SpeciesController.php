@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend\species;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use App\Species;
 
 class SpeciesController extends Controller
@@ -38,7 +39,7 @@ class SpeciesController extends Controller
     public function store(Request $request)
     {
       $valid=[
-        'name'=>'required'
+        'name'=>'required|unique:species,name'
       ];
       $messages = [
         'required' => 'Yêu cầu nhập'
@@ -86,14 +87,19 @@ class SpeciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $valid=[
-        'name'=>'required'
+      $valid1=[
+        'name'=> Rule::unique('species')->ignore($id),
+      ];
+      $valid2=[
+        'name'=>'required',
       ];
       $messages = [
-        'required' => 'Yêu cầu nhập'
+        'required' => 'Yêu cầu nhập',
+        'unique'=> 'Thể loại này đã tồn tại'
       ];
       //validte request by validate option
-      $this->validate($request, $valid,$messages);
+      $this->validate($request, $valid1,$messages);
+      $this->validate($request, $valid2,$messages);
 
       $specy = Species::find($id);
 

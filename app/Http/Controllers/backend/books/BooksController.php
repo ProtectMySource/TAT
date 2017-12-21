@@ -40,19 +40,15 @@ class BooksController extends Controller
         if(!$request->session()->has('_old_input')){
           // Delete old pdf
           Storage::disk('pdf_upload')->delete($request->session()->get('pdf_book'));
+          Storage::disk('image_upload')->delete($request->session()->get('image_book'));
           $request->session()->forget('pdf_book');
           $request->session()->forget('pdf_name');
+          $request->session()->forget('image_book');
         }
         $customers = Customers::all();
         $categories = Categories::all();
         $species = Species::all();
-        $cate='-1';
-        foreach($categories as $cus){
-          if($cus->name=='Truyện tự sáng tác'){
-            $cate = $cus->id;
-          }
-        }
-        return view('backend.books.booksadd',['categories'=>$categories,'species'=>$species,'customers'=>$customers,'cate'=>$cate]);
+        return view('backend.books.booksadd',['categories'=>$categories,'species'=>$species,'customers'=>$customers]);
     }
 
     /**
@@ -87,6 +83,28 @@ class BooksController extends Controller
           $request->session()->put('pdf_name',$file->getClientOriginalName());
         }
       }
+      if($request->hasFile('image'))
+      {
+        $file = $request->file('image');
+        $extension_of_icon = strtolower($file->getClientOriginalExtension());
+
+        //If countinute input File
+        if($request->session()->has('image_book')){
+          //Delete old icon in uploads/images/
+          Storage::disk('image_upload')->delete($request->session()->get('image_book'));
+          //Delete old session
+          $request->session()->forget('image_book');
+        }
+        //If input image
+        if(in_array($extension_of_icon,['jpg', 'jpeg', 'png', 'gif', 'svg', 'bmp'])){
+          //generate new name
+          $name_of_icon = uniqid().'_'.$file->getClientOriginalName();
+          //save pickes image to uploads/images
+          Storage::disk('image_upload')->put($name_of_icon, File::get($file));
+          //put new session
+          $request->session()->put('image_book',$name_of_icon);
+        }
+      }
       if($request['intro']=='<p>&nbsp;</p>'){
         $request['intro']='';
       }
@@ -99,7 +117,7 @@ class BooksController extends Controller
         'content'=>'mimes:application/pdf,pdf|max:50000',
         'date'=>'required|date',
         'view'=>'required|numeric',
-        'like'=>'required|numeric',
+        'like'=>'required|numeric'
       ];
       $messages = [
         'required' => 'Yêu cầu nhập',
@@ -108,8 +126,14 @@ class BooksController extends Controller
         'mimes'=>'Yêu cầu chọn file pdf'
       ];
       //validte request by validate option
-      $this->validate($request, $valid,$messages);
 
+      if(!$request->session()->has('pdf_book')){
+        $valid['content'] = 'required';
+      }
+      if(!$request->session()->has('image_book')){
+        $valid['image'] = 'required';
+      }
+      $this->validate($request, $valid,$messages);
       //setup data
       $species = $request->species;
       $spe='';
@@ -126,19 +150,21 @@ class BooksController extends Controller
       $book->date = $request->date;
       $book->view = $request->view;
       $book->like = $request->like;
+      $book->recommend = 0;
       $book->species = $spe;
       $book->categories_id = $request->categories;
-      $book->content = Session::get('pdf_name');
+      $book->content = Session::get('pdf_book');
+      $book->image = Session::get('image_book');
 
       $book->save();
 
       //delete session
       $request->session()->forget('pdf_book');
       $request->session()->forget('pdf_name');
+      $request->session()->forget('image_book');
 
       //back to table page
       return redirect()->route('books.index')->with('status','Thêm mới thành công!');
-
     }
 
     /**
@@ -212,6 +238,28 @@ class BooksController extends Controller
           $request->session()->put('pdf_name',$file->getClientOriginalName());
         }
       }
+      if($request->hasFile('image'))
+      {
+        $file = $request->file('image');
+        $extension_of_icon = strtolower($file->getClientOriginalExtension());
+
+        //If countinute input File
+        if($request->session()->has('image_book')){
+          //Delete old icon in uploads/images/
+          Storage::disk('image_upload')->delete($request->session()->get('image_book'));
+          //Delete old session
+          $request->session()->forget('image_book');
+        }
+        //If input image
+        if(in_array($extension_of_icon,['jpg', 'jpeg', 'png', 'gif', 'svg', 'bmp'])){
+          //generate new name
+          $name_of_icon = uniqid().'_'.$file->getClientOriginalName();
+          //save pickes image to uploads/images
+          Storage::disk('image_upload')->put($name_of_icon, File::get($file));
+          //put new session
+          $request->session()->put('image_book',$name_of_icon);
+        }
+      }
       if($request['intro']=='<p>&nbsp;</p>'){
         $request['intro']='';
       }
@@ -224,7 +272,7 @@ class BooksController extends Controller
         'content'=>'mimes:application/pdf,pdf|max:50000',
         'date'=>'required|date',
         'view'=>'required|numeric',
-        'like'=>'required|numeric',
+        'like'=>'required|numeric'
       ];
       $messages = [
         'required' => 'Yêu cầu nhập',
@@ -244,7 +292,9 @@ class BooksController extends Controller
       $count = strlen($spe);
       $spe = substr($spe,0,$count-1);
       //save data
+
       $book = Books::where('id',$id)->first();
+      Storage::disk('image_upload')->delete($book->image);
       $book->name = $request->name;
       $book->author = $request->author;
       $book->preview = $request->intro;
@@ -254,7 +304,10 @@ class BooksController extends Controller
       $book->species = $spe;
       $book->categories_id = $request->categories;
       if(Session::get('pdf_name')){
-        $book->content = Session::get('pdf_name');
+        $book->content = Session::get('pdf_book');
+      }
+      if(Session::get('image_book')){
+        $book->image = Session::get('image_book');
       }
 
       $book->save();
@@ -262,6 +315,7 @@ class BooksController extends Controller
       //delete session
       $request->session()->forget('pdf_book');
       $request->session()->forget('pdf_name');
+      $request->session()->forget('image_book');
 
       //back to table page
       return redirect()->route('books.index')->with('status','Sửa thành công!');
@@ -276,21 +330,22 @@ class BooksController extends Controller
     public function destroy($id)
     {
       $book = Books::where('id',$id)->first();
-      Storage::disk('pdf_upload')->delete($book->content);
       $book->delete();
-      $books = Chaps::where('books_id',$id)->get();
+      Storage::disk('pdf_upload')->delete($book->content);
+      Storage::disk('image_upload')->delete($book->image);
+      $books = Chaps::where('book_id',$id)->get();
       if($books){
         foreach ($books as $book) {
           $book->delete();
         }
       }
-      $books = Subs::where('books_id',$id)->get();
+      $books = Subs::where('book_id',$id)->get();
       if($books){
         foreach ($books as $book) {
           $book->delete();
         }
       }
-      $books = Comments::where('books_id',$id)->get();
+      $books = Comments::where('book_id',$id)->get();
       if($books){
         foreach ($books as $book) {
           $book->delete();
@@ -300,98 +355,13 @@ class BooksController extends Controller
       return redirect()->route('books.index')->with('status','Đã xóa thành công!');
     }
 
-    public function tusangtac_store(Request $request)
-    {
-      if($request['intro']=='<p>&nbsp;</p>'){
-        $request['intro']='';
-      }
-      $valid=[
-        'name'=>'required',
-        'author2'=>'required',
-        'categories'=>'required',
-        'species'=>'required',
-        'intro'=>'required',
-        'date'=>'required|date',
-        'view'=>'required|numeric',
-        'like'=>'required|numeric',
-      ];
-      $messages = [
-        'required' => 'Yêu cầu nhập',
-        'date'=>'Yêu cầu nhập ngày',
-        'notIn'=>'Yâu cầu nhập'
-      ];
-      //validte request by validate option
-      $this->validate($request, $valid,$messages);
-
-      //setup data
-      $species = $request->species;
-      $spe='';
-      foreach ($species as $s) {
-        $spe = $spe.' '.$s.',';
-      }
-      $count = strlen($spe);
-      $spe = substr($spe,0,$count-1);
-      //save data
-      $book = new Books;
-      $book->name = $request->name;
-      $book->customer_id = $request->author2;
-      $book->preview = $request->intro;
-      $book->date = $request->date;
-      $book->view = $request->view;
-      $book->like = $request->like;
-      $book->species = $spe;
-      $book->categories_id = $request->categories;
-
-      $book->save();
-      return redirect()->route('books.index')->with('status','Thêm mới thành công!');
+    public function search(Request $request){
+      $search = $request->search;
+      $books = Books::where('id',$search)
+                    ->orwhere('name','like','%'.$search.'%')
+                    ->orwhere('author','like','%'.$search.'%')
+                    ->orwhere('date','like','%'.$search.'%')
+                      ->sortable()->paginate(5);
+      return view('backend.books.bookstable',['books'=>$books]);
     }
-
-    public function tusangtac_update(Request $request, $id){
-      if($request['intro']=='<p>&nbsp;</p>'){
-        $request['intro']='';
-      }
-      $valid=[
-        'name'=>'required',
-        'author2'=>'required',
-        'categories'=>'required',
-        'species'=>'required',
-        'intro'=>'required',
-        'date'=>'required|date',
-        'view'=>'required|numeric',
-        'like'=>'required|numeric',
-      ];
-      $messages = [
-        'required' => 'Yêu cầu nhập',
-        'date'=>'Yêu cầu nhập ngày',
-        'notIn'=>'Yâu cầu nhập'
-      ];
-      //validte request by validate option
-      $this->validate($request, $valid,$messages);
-
-      //setup data
-      $species = $request->species;
-      $spe='';
-      foreach ($species as $s) {
-        $spe = $spe.' '.$s.',';
-      }
-      $count = strlen($spe);
-      $spe = substr($spe,0,$count-1);
-      //save data
-      $book = Books::where('id',$id)->first();
-      $book->name = $request->name;
-      $book->customer_id = $request->author2;
-      $book->preview = $request->intro;
-      $book->date = $request->date;
-      $book->view = $request->view;
-      $book->like = $request->like;
-      $book->species = $spe;
-      $book->categories_id = $request->categories;
-      $book->content='';
-
-      Storage::disk('pdf_upload')->delete($book->content);
-
-      $book->save();
-      return redirect()->route('books.index')->with('status','Sửa thành công!');
-    }
-
 }
