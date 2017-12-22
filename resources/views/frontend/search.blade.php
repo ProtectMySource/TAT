@@ -119,44 +119,6 @@
                      </div>
                   </div>
                </div>
-               <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="block block-editors-choice-slider">
-                     <div class="block-content">
-                        <div class="editors-choice-slider js-editors-choice-slider">
-                           <h2>Đọc nhiều</h2>
-                           <div class="swiper-container swiper-container-horizontal">
-                              <div class="swiper-wrapper" style="transform: translate3d(-752px, 0px, 0px); transition-duration: 0ms;">
-                                @if(count($books_top)>0)
-                                @foreach($books_top as $b)
-                                <div class="swiper-slide" style="width: 346px; margin-right: 30px;">
-                                   <div class="item">
-                                      <div class="thumb"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}"><img class="img-responsive" alt="" src="{{asset('uploads/images/').'/'.$b->image}}" title="{{$b->name}}"></a> </div>
-                                      <div class="info">
-                                         <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
-                                         <p class="description"> Thể Loại : {{$b->species}} </p>
-                                      </div>
-                                   </div>
-                                </div>
-                                @endforeach
-                                @endif
-                              </div>
-                              <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
-                                @if(count($books_top)>0)
-                                @for($i=0;$i<count($books_top);$i++)
-                                  @if($i==0)
-                                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-                                  @else
-                                    <span class="swiper-pagination-bullet"></span>
-                                  @endif
-                                @endfor
-                                @endif
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="text-center"></div>
-               </div>
             </div>
          </div>
       </div>

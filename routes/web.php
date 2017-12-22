@@ -47,3 +47,4 @@ Route::get('/index','frontend\IndexController@index')->name('frontend.index');
 Route::get('/danhmuc/{category}','frontend\IndexController@danhsach')->name('frontend.danhsach');
 Route::get('/theloai/{specy}','frontend\IndexController@theloai')->name('frontend.theloai');
 Route::get('/detail/{id}','frontend\IndexController@show')->name('frontend.show');
+Route::get('/search','frontend\IndexController@search')->name('frontend.search');

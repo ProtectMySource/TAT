@@ -54,8 +54,16 @@ class IndexController extends Controller
       $categories = Categories::all();
       $species = Species::all();
       $books = Books::all();
-      $book = Books::where('id','6')->first();
+      $book = Books::where('id',$request->id)->first();
       return view('frontend.show',['categories'=>$categories
           ,'species'=>$species,'books'=>$books,'book'=>$book]);
+    }
+    public function search(Request $request){
+      $categories = Categories::all();
+      $species = Species::all();
+      $search = $request->txtKeyword;
+      $books = Books::where('name','like','%'.$search.'%')->paginate(15);
+      return view('frontend.search',['books'=>$books,'categories'=>$categories
+          ,'species'=>$species,'danhsach'=>'Tìm kiếm']);
     }
 }

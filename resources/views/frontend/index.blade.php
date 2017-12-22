@@ -68,7 +68,7 @@
                         <li>
                            <div class="search-block">
                               <div class="actions"> <button type="submit" title="Tìm kiếm" class="search-toggle-btn" id="js-search-toggle"> <i class="truyencv-icon icon-search"></i> </button> </div>
-                              <form id="js-search-panel" class="search-panel" onsubmit="do_search(1);return false;"> <input type="text" name="txtKeyword" id="txtKeyword" value="" placeholder="Tên truyện hoặc tác giả" class="form-control" autocomplete="off"> <button class="btn btn-search" type="submit"> <i class="fa fa-search"></i> </button>  </form>
+                              <form id="js-search-panel" class="search-panel" action="{{route('frontend.search')}}" method="get"> <input type="text" name="txtKeyword" id="txtKeyword" value="{{Request::input('txtKeyword')}}" placeholder="Tên truyện" class="form-control" autocomplete="off"> <button class="btn btn-search" type="submit"> <i class="fa fa-search"></i> </button>  </form>
                            </div>
                         </li>
                         <li>
@@ -137,7 +137,7 @@
                                            <div class="item">
                                               <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
                                               <div class="view text-secondary"> <strong>{{$b->view}}</strong> người truy cập </div>
-                                              <p class="description"> {!!$b->preview!!} </p>
+                                              <p class="description"> {{strlen(substr(strip_tags($b->preview),0,strlen($b->preview)))>100 ? substr(strip_tags($b->preview),0,100)."...":substr(strip_tags($b->preview),0,strlen($b->preview))}} </p>
                                            </div>
                                         </div>
                                         @endif
@@ -505,7 +505,7 @@
          <a href="" class="truyencv-search-box-overlay js-close-search-box"></a>
          <div class="truyencv-search-box">
             <div class="container">
-               <form class="search-box-mobile" onsubmit="do_search(2);return false;"> <input type="text" name="q" class="form-control" id="txtKeyword2" placeholder="Tên truyện hoặc tác giả không dấu" value="" autocomplete="off"> <button type="submit" class="search-box-mobile-btn" id="js-search-box-mobile-btn"> <i class="truyencv-icon icon-search-primary"></i> </button> </form>
+               <!-- <form class="search-box-mobile" onsubmit="do_search(2);return false;"> <input type="text" name="q" class="form-control" id="txtKeyword2" placeholder="Tên truyện hoặc tác giả không dấu" value="" autocomplete="off"> <button type="submit" class="search-box-mobile-btn" id="js-search-box-mobile-btn"> <i class="truyencv-icon icon-search-primary"></i> </button> </form> -->
             </div>
          </div>
       </div>
