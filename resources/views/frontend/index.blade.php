@@ -50,7 +50,7 @@
                         <button class="navbar-category-btn js-open-sidebar"> <span class="lines"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </span> <span class="hidden-xs hidden-sm">Danh mục</span> </button>
                         <ul class="navbar-category-list">
                           @foreach($categories as $c)
-                            <li class="col-xs-4"> <a href="{{route('frontend.danhsach',['category'=>str_slug($c->name)])}}">{{$c->name}}</a> </li>
+                            <li class="col-xs-4"> <a href="{{route('frontend.danhsach',['category'=>$c->id])}}">{{$c->name}}</a> </li>
                           @endforeach
                         </ul>
                      </div>
@@ -58,7 +58,7 @@
                         <button class="navbar-category-btn js-open-sidebar"> <span class="lines"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </span> <span class="hidden-xs hidden-sm">Thể loại</span> </button>
                         <ul class="navbar-category-list">
                           @foreach($species as $s)
-                            <li class="col-xs-4"> <a href="{{route('frontend.theloai',['specy'=>str_slug($s->name)])}}">{{$s->name}}</a> </li>
+                            <li class="col-xs-4"> <a href="{{route('frontend.theloai',['specy'=>$s->id])}}">{{$s->name}}</a> </li>
                           @endforeach
                         </ul>
                      </div>
@@ -360,99 +360,33 @@
                                     <div class="content">
                                        <div class="index index-1"> 1 </div>
                                        <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/van-dao-kiem-ton/" title="Vạn Đạo Kiếm Tôn">Vạn Đạo Kiếm Tôn</a> </h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">660</span> người theo dõi </div>
+                                          <h2 class="title"> <a href="{{route('frontend.show',['id'=>$books_like[0]->name])}}" title="{{$books_like[0]->name}}">{{$books_like[0]->name}}</a> </h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_like[0]->like}}</span> người theo dõi </div>
                                           <div class="extra-info">
-                                             <p>Thể loại: <a href="http://truyencv.com/huyen-ao/">Huyền Ảo</a></p>
-                                             <p>Tác giả: Đả Tử Đô Yếu Tiễn</p>
+                                             <p>Thể loại: <a href="">{{$books_like[0]->species}}</a></p>
+                                             <p>Tác giả: {{$books_like[0]->author}}</p>
                                           </div>
                                        </div>
                                        <div class="thumb">
-                                          <div class="book-cover"> <a class="book-cover-link" href="http://truyencv.com/van-dao-kiem-ton/" title="Vạn Đạo Kiếm Tôn"> <img src="{{asset('frontend/img/van-dao-kiem-ton-poster-1510636313-200x300.jpg')}}" alt="Vạn Đạo Kiếm Tôn"> </a> <span class="book-cover-shadow"></span> </div>
+                                          <div class="book-cover"> <a class="book-cover-link" href="{{route('frontend.show',['id'=>$books_like[0]->name])}}" title="{{$books_like[0]->name}}"> <img src="{{asset('uploads/images').'/'.$books_like[0]->image}}" alt="{{$books_like[0]->name}}"> </a> <span class="book-cover-shadow"></span> </div>
                                        </div>
                                     </div>
                                  </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-2"> 2 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/nhat-niem-vinh-hang/" title="Nhất Niệm Vĩnh Hằng">Nhất Niệm Vĩnh Hằng</a> </h2>
-                                          <div class="view text-secondary"> 496 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-3"> 3 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/vo-dich-huyet-mach/" title="Vô Địch Huyết Mạch">Vô Địch Huyết Mạch</a> </h2>
-                                          <div class="view text-secondary"> 446 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-4"> 4 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/van-co-than-de/" title="Vạn Cổ Thần Đế">Vạn Cổ Thần Đế</a> </h2>
-                                          <div class="view text-secondary"> 418 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-5"> 5 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/pham-nhan-tu-tien-chi-tien-gioi-thien/" title="Phàm Nhân Tu Tiên Chi Tiên Giới Thiên">Phàm Nhân Tu Tiên Chi Tiên Giới Thiên</a> </h2>
-                                          <div class="view text-secondary"> 401 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-6"> 6 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/de-ba/" title="Đế Bá">Đế Bá</a> </h2>
-                                          <div class="view text-secondary"> 370 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-7"> 7 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/ta-di-gioi-hac-khoa-ky-quan-net/" title="Ta Dị Giới Hắc Khoa Kỹ Quán Net">Ta Dị Giới Hắc Khoa Kỹ Quán Net</a> </h2>
-                                          <div class="view text-secondary"> 369 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-8"> 8 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/thien-dao-thu-vien/" title="Thiên Đạo Thư Viện">Thiên Đạo Thư Viện</a> </h2>
-                                          <div class="view text-secondary"> 348 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-9"> 9 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/toi-cuong-nam-tong-chu-tai-nu-mon-phai/" title="Tối Cường Nam Tông Chủ Tại Nữ Môn Phái">Tối Cường Nam Tông Chủ Tại Nữ Môn Phái</a> </h2>
-                                          <div class="view text-secondary"> 334 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-10"> 10 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/vu-than-chua-te/" title="Vũ Thần Chúa Tể">Vũ Thần Chúa Tể</a> </h2>
-                                          <div class="view text-secondary"> 332 </div>
-                                       </div>
-                                    </div>
-                                 </li>
+                                 @php $count=1 @endphp
+                                 @foreach($books_like as $b)
+                                  @if($count>1)
+                                  <li class="list-group-item list-group-item-primary">
+                                     <div class="content">
+                                        <div class="index index-2"> {{$count}} </div>
+                                        <div class="info">
+                                           <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                           <div class="view text-secondary"> {{$b->like}} </div>
+                                        </div>
+                                     </div>
+                                  </li>
+                                  @endif
+                                  @php $count++ @endphp
+                                 @endforeach
                               </ul>
                            </div>
                         </div>
@@ -464,103 +398,39 @@
                            </div>
                            <div class="block-content">
                               <ul class="list-group">
+                                @if(count($books_st_hot)>0)
                                  <li class="list-group-item list-group-item-primary item-featured">
                                     <div class="content">
                                        <div class="index index-1"> 1 </div>
                                        <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/mat-the-vinh-hang/" title="Mạt Thế Giả Tưởng">Mạt Thế Giả Tưởng</a> </h2>
-                                          <div class="view text-secondary"> <span class="text-red fz-16">4.2k</span> người truy cập </div>
+                                          <h2 class="title"> <a href="{{route('frontend.show',['id'=>$books_st_hot[0]->id])}}" title="{{$books_st_hot[0]->name}}">{{$books_st_hot[0]->name}}</a> </h2>
+                                          <div class="view text-secondary"> <span class="text-red fz-16">{{$books_st_hot[0]->view}}</span> người truy cập </div>
                                           <div class="extra-info">
-                                             <p>Thể loại: <a href="http://truyencv.com/huyen-ao/">Huyền Ảo</a></p>
-                                             <p>Tác giả: KingAzir123</p>
+                                             <p>Thể loại: <a href="">{{$books_st_hot[0]->species}}</a></p>
+                                             <p>Tác giả: {{$books_st_hot[0]->author}}</p>
                                           </div>
                                        </div>
                                        <div class="thumb">
-                                          <div class="book-cover"> <a class="book-cover-link" href="http://truyencv.com/mat-the-vinh-hang/" title="Mạt Thế Giả Tưởng"> <img src="{{asset('frontend/img/mat-the-vinh-hang-poster-1510073168-200x300.jpg')}}" alt="Mạt Thế Giả Tưởng"> </a> <span class="book-cover-shadow"></span> </div>
+                                          <div class="book-cover"> <a class="book-cover-link" href="{{route('frontend.show',['id'=>$books_st_hot[0]->id])}}" title="{{$books_st_hot[0]->name}}"> <img src="{{asset('uploads/images').'/'.$books_st_hot[0]->image}}" alt="{{$books_st_hot[0]->name}}"> </a> <span class="book-cover-shadow"></span> </div>
                                        </div>
                                     </div>
                                  </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-2"> 2 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/thuc-tinh-luon-hoi-nhan/" title="Thức Tỉnh Luân Hồi Nhãn">Thức Tỉnh Luân Hồi Nhãn</a> </h2>
-                                          <div class="view text-secondary"> 1.6k </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-3"> 3 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/mat-tham-phong-van/" title="Mật Thám Phong Vân">Mật Thám Phong Vân</a> </h2>
-                                          <div class="view text-secondary"> 980 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-4"> 4 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/ma-than-thien-quan/" title="Ma Thần Thiên Quân">Ma Thần Thiên Quân</a> </h2>
-                                          <div class="view text-secondary"> 976 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-5"> 5 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/tuyet-the-duong-mon-chi-thanh-ngan/" title="Tuyệt Thế Đường Môn Chi Thánh Ngân">Tuyệt Thế Đường Môn Chi Thánh Ngân</a> </h2>
-                                          <div class="view text-secondary"> 790 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-6"> 6 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/xuyen-viet-toi-cuong-gia/" title="Xuyên Việt Tối Cường Gia">Xuyên Việt Tối Cường Gia</a> </h2>
-                                          <div class="view text-secondary"> 755 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-7"> 7 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/cuc-vo/" title="Cực Võ">Cực Võ</a> </h2>
-                                          <div class="view text-secondary"> 654 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-8"> 8 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/de-dao-vo-song/" title="Đế Đạo Vô Song">Đế Đạo Vô Song</a> </h2>
-                                          <div class="view text-secondary"> 626 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-9"> 9  </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/toan-nang-chua-te-he-thong/" title="Toàn Năng Chúa Tể Hệ Thống">Toàn Năng Chúa Tể Hệ Thống</a> </h2>
-                                          <div class="view text-secondary"> 527 </div>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="list-group-item list-group-item-primary">
-                                    <div class="content">
-                                       <div class="index index-10"> 10 </div>
-                                       <div class="info">
-                                          <h2 class="title"> <a href="http://truyencv.com/sieu-viet-tai-chinh/" title="Siêu Việt Tài Chính">Siêu Việt Tài Chính</a> </h2>
-                                          <div class="view text-secondary"> 527 </div>
-                                       </div>
-                                    </div>
-                                 </li>
+                                 @php $count=1 @endphp
+                                 @foreach($books_st_hot as $b)
+                                  @if($count>1)
+                                  <li class="list-group-item list-group-item-primary">
+                                     <div class="content">
+                                        <div class="index index-2"> {{$count}} </div>
+                                        <div class="info">
+                                           <h2 class="title"> <a href="{{route('frontend.show',['id'=>$b->id])}}" title="{{$b->name}}">{{$b->name}}</a> </h2>
+                                           <div class="view text-secondary"> {{$b->view}} </div>
+                                        </div>
+                                     </div>
+                                  </li>
+                                  @endif
+                                  @php $count++ @endphp
+                                 @endforeach
+                                 @endif
                               </ul>
                            </div>
                         </div>
@@ -601,61 +471,38 @@
                </div>
             </div>
          </footer>
-         <a href="http://truyencv.com/#" class="truyencv-sidebar-overlay js-close-sidebar"></a>
+         <a href="" class="truyencv-sidebar-overlay js-close-sidebar"></a>
          <aside class="truyencv-sidebar">
-            <a href="http://truyencv.com/#" class="sidebar-close js-close-sidebar"></a>
+            <a href="=" class="sidebar-close js-close-sidebar"></a>
             <div class="sidebar-container">
                <div class="sidebar-header">
                   <div class="user-icon"> <i class="truyencv-icon icon-user"></i> </div>
                   <div class="card-menu">
                      <div class="list-group">
-                        <div class="list-group-item list-group-item-sidebar"> <a class="truyencv-sidebar-user-title collapsed" role="button" data-toggle="collapse" href="http://truyencv.com/#truyencv-user-login-collapse" aria-expanded="false" aria-controls="truyencv-user-login-collapse">Đăng nhập / Đăng ký <span class="truyencv-icon icon-white-next"></span> </a> </div>
                         <div class="list-group collapse" id="truyencv-user-login-collapse">
                            <div class="list-group-item list-group-item-sidebar list-group-item-diver"></div>
-                           <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/#modal-login" data-toggle="modal" class="login-btn">Đăng nhập</a> </div>
-                           <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/#modal-register" data-toggle="modal" class="login-btn">Đăng ký</a> </div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="sidebar-menu">
                   <div class="list-group">
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/"> Trang chủ <span class="truyencv-icon icon-next"></span> </a> </div>
+                     <div class="list-group-item list-group-item-sidebar"> <a href="{{route('frontend.index')}}"> Trang chủ <span class="truyencv-icon icon-next"></span> </a> </div>
                   </div>
                   <div class="list-group">
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/loc-truyen/"> Lọc truyện <span class="label label-warning">Mới</span> <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/bang-xep-hang/" target="_blank" title="forum"> Bảng xếp hạng <span class="truyencv-icon icon-next"></span> </a> </div>
+                    @foreach($categories as $c)
+                      <div class="list-group-item list-group-item-sidebar"> <a href="{{route('frontend.danhsach',['category'=>$c->id])}}"> {{$c->name}} <span class="truyencv-icon icon-next"></span> </a> </div>
+                    @endforeach
                   </div>
                   <div class="list-group">
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/danh-sach/moi-cap-nhat/"> Truyện mới <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/danh-sach/hoan-thanh/"> Truyện hoàn thành <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/danh-sach/truyen-de-cu/"> Truyện đề cử <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/danh-sach/sang-tac/"> Truyện sáng tác <span class="truyencv-icon icon-next"></span> </a> </div>
-                  </div>
-                  <div class="list-group">
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/tien-hiep/"> Tiên Hiệp <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/kiem-hiep/"> Kiếm Hiệp <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/do-thi/"> Đô Thị <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/huyen-ao/"> Huyền Ảo <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/ngon-tinh/"> Ngôn Tình <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/di-nang/"> Dị Năng <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/vong-du/"> Võng Du <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/di-gioi/"> Dị Giới <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/khoa-huyen/"> Khoa Huyễn <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/quan-su/"> Quân Sự <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/lich-su/"> Lịch Sử <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/xuyen-khong/"> Xuyên Không <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/trung-sinh/"> Trùng Sinh <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/canh-ky/"> Cạnh Kỹ <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/dong-nhan/"> Đồng Nhân <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/linh-di/"> Linh Dị <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/mat-the/"> Mạt Thế <span class="truyencv-icon icon-next"></span> </a> </div>
-                     <div class="list-group-item list-group-item-sidebar"> <a href="http://truyencv.com/nu-hiep/"> Nữ Hiệp <span class="truyencv-icon icon-next"></span> </a> </div>
+                    @foreach($species as $c)
+                      <div class="list-group-item list-group-item-sidebar"> <a href="{{route('frontend.theloai',['category'=>$c->id])}}"> {{$c->name}} <span class="truyencv-icon icon-next"></span> </a> </div>
+                    @endforeach
                   </div>
                </div>
             </div>
          </aside>
-         <a href="http://truyencv.com/#" class="truyencv-search-box-overlay js-close-search-box"></a>
+         <a href="" class="truyencv-search-box-overlay js-close-search-box"></a>
          <div class="truyencv-search-box">
             <div class="container">
                <form class="search-box-mobile" onsubmit="do_search(2);return false;"> <input type="text" name="q" class="form-control" id="txtKeyword2" placeholder="Tên truyện hoặc tác giả không dấu" value="" autocomplete="off"> <button type="submit" class="search-box-mobile-btn" id="js-search-box-mobile-btn"> <i class="truyencv-icon icon-search-primary"></i> </button> </form>

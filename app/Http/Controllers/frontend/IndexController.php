@@ -31,13 +31,31 @@ class IndexController extends Controller
               'books_st_hot'=>$books_st_hot,'books_like'=>$books_like]);
     }
 
-    public function danhsach(){
-
+    public function danhsach(Request $request){
+      $categories = Categories::all();
+      $species = Species::all();
+      $c = Categories::where('id',$request->category)->first();
+      $books = Books::where('categories_id',$c->id)->orderBy('created_at','desc')->paginate(20);
+          $books_top = Books::where('categories_id',$c->id)->orderBy('view','desc')->take(5)->get();
+          return view('frontend.list',['categories'=>$categories
+              ,'species'=>$species,'books'=>$books,'books_top'=>$books_top,'danhsach'=>$c->name]);
     }
-    public function theloai(){
-
+    public function theloai(Request $request){
+      $categories = Categories::all();
+      $species = Species::all();
+      $c = Species::where('id',$request->specy)->first();
+      $cates = Categories::all();
+          $books = Books::where('species','like','%'.$c->name.'%')->orderBy('created_at','desc')->paginate(20);
+          $books_top = Books::where('species','like','%'.$c->name.'%')->orderBy('view','desc')->take(5)->get();
+      return view('frontend.list',['categories'=>$categories
+          ,'species'=>$species,'books'=>$books,'books_top'=>$books_top,'danhsach'=>$c->name]);
     }
-    public function show(){
-
+    public function show(Request $request){
+      $categories = Categories::all();
+      $species = Species::all();
+      $books = Books::all();
+      $book = Books::where('id','6')->first();
+      return view('frontend.show',['categories'=>$categories
+          ,'species'=>$species,'books'=>$books,'book'=>$book]);
     }
 }
